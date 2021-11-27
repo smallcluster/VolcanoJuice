@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=2]
+[gd_scene load_steps=141 format=2]
 
 [ext_resource path="res://control_room_assets/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://pnj/pnj.tscn" type="PackedScene" id=2]
@@ -9841,6 +9841,7 @@ ambient_light_energy = 0.5
 tonemap_mode = 3
 tonemap_exposure = 2.0
 tonemap_white = 16.0
+ss_reflections_enabled = true
 ssao_enabled = true
 ssao_intensity = 0.5
 ssao_blur = 1
@@ -9848,15 +9849,37 @@ glow_enabled = true
 glow_bloom = 0.05
 adjustment_color_correction = SubResource( 22 )
 
-[sub_resource type="CubeMesh" id=7]
-
-[sub_resource type="SpatialMaterial" id=8]
-albedo_color = Color( 0, 0, 0, 1 )
-
 [sub_resource type="CubeMesh" id=9]
 
 [sub_resource type="BoxShape" id=36]
 extents = Vector3( 2.48306, 1, 1 )
+
+[sub_resource type="Animation" id=149]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("water:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 1, 0.941176 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("water:material/0:emission_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "redalert"
@@ -9910,6 +9933,42 @@ tracks/3/keys = {
 "args": [  ],
 "method": "start_alarm"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("water:material/0:emission")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.176471, 0, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("water:material/0:emission_enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("water:material/0:albedo_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 1, 0.941176 ), Color( 0.054902, 1, 0, 0.941176 ) ]
 }
 
 [sub_resource type="Animation" id=25]
@@ -9966,6 +10025,60 @@ extents = Vector3( 2.60699, 1, 1 )
 [sub_resource type="BoxShape" id=144]
 extents = Vector3( 0.406867, 0.66705, 0.741234 )
 
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=146]
+
+[sub_resource type="SpatialMaterial" id=147]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.490196 )
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="SpatialMaterial" id=148]
+flags_transparent = true
+albedo_color = Color( 0, 1, 1, 0.941176 )
+emission_enabled = true
+emission = Color( 0, 0.176471, 0, 1 )
+emission_energy = 2.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="Animation" id=150]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("water:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -1 ) ]
+}
+
+[sub_resource type="Animation" id=151]
+resource_name = "water_move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("water:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -1 ), Vector3( 0, 0, 1 ), Vector3( 0, 0, -1 ) ]
+}
+
 [node name="world" type="Spatial"]
 script = ExtResource( 10 )
 
@@ -9974,6 +10087,10 @@ transform = Transform( 0.264557, 0.340355, -0.902313, 0, 0.935649, 0.352931, 0.9
 
 [node name="floors" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="floor2" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
@@ -10148,6 +10265,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 6 )
 
 [node name="pnjs" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0910785, 0, -3.09441 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="pnj" parent="pnjs" instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.52943, 0.00150192, -2.84213 )
@@ -10163,10 +10284,10 @@ couleur_cheveux = Color( 0.937526, 0.928739, 0.710988, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999948, -0.0100408, -0.00140954, -0.0101392, 0.990241, 0.138995, 1.73464e-07, 0.139002, -0.990291, -0.00418246, 0.748573, 0.103921 )
+transform = Transform( -0.999999, -0.000350736, -8.91123e-05, -0.000361793, 0.969254, 0.246062, 8.50902e-08, 0.246061, -0.969253, -0.000148943, 0.747661, 0.107613 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999948, -0.0100408, -0.00140954, -0.0101392, 0.990241, 0.138995, 1.73464e-07, 0.139002, -0.990291, -0.00418246, 0.748573, 0.103921 )
+transform = Transform( -0.999999, -0.000350736, -8.91123e-05, -0.000361793, 0.969254, 0.246062, 8.50902e-08, 0.246061, -0.969253, -0.000148943, 0.747661, 0.107613 )
 
 [node name="lunettes" parent="pnjs/pnj/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10200,10 +10321,10 @@ couleur_cheveux = Color( 0.0369748, 0.971596, 0.756772, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj3/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999904, -0.0137516, -0.00120633, -0.0138043, 0.99608, 0.0873687, 1.63286e-07, 0.0873766, -0.996175, -0.00570443, 0.749287, 0.100618 )
+transform = Transform( -0.99997, -0.00745604, -0.00130158, -0.00756871, 0.985077, 0.171949, 1.15292e-07, 0.171953, -0.985104, -0.00311909, 0.748178, 0.105596 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj3/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999904, -0.0137516, -0.00120633, -0.0138043, 0.99608, 0.0873687, 1.63286e-07, 0.0873766, -0.996175, -0.00570443, 0.749287, 0.100618 )
+transform = Transform( -0.99997, -0.00745604, -0.00130158, -0.00756871, 0.985077, 0.171949, 1.15292e-07, 0.171953, -0.985104, -0.00311909, 0.748178, 0.105596 )
 
 [node name="lunettes" parent="pnjs/pnj3/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10252,10 +10373,10 @@ couleur_cheveux = Color( 0.858662, 0.36601, 0.138128, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj4/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.997978, 0.010976, 0.062599, 0.0196738, 0.989946, 0.14007, -0.0604323, 0.141018, -0.98816, 0.0070328, 0.749807, 0.0978914 )
+transform = Transform( -0.994161, 0.00673374, 0.107694, 0.018867, 0.993524, 0.112046, -0.106242, 0.113423, -0.987849, 0.00647923, 0.749815, 0.0978919 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj4/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.997978, 0.010976, 0.062599, 0.0196738, 0.989946, 0.14007, -0.0604323, 0.141018, -0.98816, 0.0070328, 0.749807, 0.0978914 )
+transform = Transform( -0.994161, 0.00673374, 0.107694, 0.018867, 0.993524, 0.112046, -0.106242, 0.113423, -0.987849, 0.00647923, 0.749815, 0.0978919 )
 
 [node name="lunettes" parent="pnjs/pnj4/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10304,13 +10425,13 @@ couleur_cheveux = Color( 0.902265, 0.724683, 0.146116, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj8/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.99984, -0.0178243, 0.00101645, -0.0177624, 0.998877, 0.0439089, -0.00179794, 0.043883, -0.999034, -0.00298831, 0.764812, -0.0123146 )
+transform = Transform( -0.999992, -0.00335453, 0.00195229, -0.00335441, 0.999994, 1.09076e-05, -0.00195232, 3.66569e-06, -0.999997, 0.00730717, 0.764589, -1.35601e-06 )
 
 [node name="casque" parent="pnjs/pnj8/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj8/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.99984, -0.0178243, 0.00101645, -0.0177624, 0.998877, 0.0439089, -0.00179794, 0.043883, -0.999034, -0.00298831, 0.764812, -0.0123146 )
+transform = Transform( -0.999992, -0.00335453, 0.00195229, -0.00335441, 0.999994, 1.09076e-05, -0.00195232, 3.66569e-06, -0.999997, 0.00730717, 0.764589, -1.35601e-06 )
 
 [node name="lunettes" parent="pnjs/pnj8/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10360,13 +10481,13 @@ couleur_cheveux = Color( 0.411765, 0.278431, 0.207843, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj9/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999998, -0.000536194, -0.00155712, -0.000535126, 1, -0.000623882, 0.00155745, -0.000623733, -0.999998, 0.000168077, 0.764438, -0.000230392 )
+transform = Transform( -0.999988, 0.00160711, 0.00436262, 0.00158812, 0.999989, -0.00437811, -0.00436961, -0.00437188, -0.99998, -0.000638683, 0.764444, -0.0010971 )
 
 [node name="casque" parent="pnjs/pnj9/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj9/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999998, -0.000536194, -0.00155712, -0.000535126, 1, -0.000623882, 0.00155745, -0.000623733, -0.999998, 0.000168077, 0.764438, -0.000230392 )
+transform = Transform( -0.999988, 0.00160711, 0.00436262, 0.00158812, 0.999989, -0.00437811, -0.00436961, -0.00437188, -0.99998, -0.000638683, 0.764444, -0.0010971 )
 
 [node name="lunettes" parent="pnjs/pnj9/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10416,13 +10537,13 @@ couleur_cheveux = Color( 0.409717, 0.570208, 0.985189, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj10/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.99995, -0.00978812, 0.00185554, -0.00978798, 0.999952, 2.58982e-05, -0.0018557, 7.09295e-06, -0.999997, 0.0085447, 0.764545, -3.43286e-06 )
+transform = Transform( -0.968222, 0.0302961, 0.248247, 0.0213016, 0.999018, -0.0388393, -0.249181, -0.0323177, -0.967917, 0.00580386, 0.76413, -0.0358214 )
 
 [node name="casque" parent="pnjs/pnj10/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj10/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.99995, -0.00978812, 0.00185554, -0.00978798, 0.999952, 2.58982e-05, -0.0018557, 7.09295e-06, -0.999997, 0.0085447, 0.764545, -3.43286e-06 )
+transform = Transform( -0.968222, 0.0302961, 0.248247, 0.0213016, 0.999018, -0.0388393, -0.249181, -0.0323177, -0.967917, 0.00580386, 0.76413, -0.0358214 )
 
 [node name="lunettes" parent="pnjs/pnj10/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10472,13 +10593,13 @@ couleur_cheveux = Color( 0.391178, 0.6739, 0.0907809, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj11/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999973, 0.00250629, 0.00681806, 0.00245917, 0.999973, -0.00692612, -0.00683524, -0.00690997, -0.999952, -0.000996462, 0.764356, -0.00176376 )
+transform = Transform( -0.999593, 0.0101635, 0.0266376, 0.00936382, 0.999507, -0.0299785, -0.0269291, -0.0297176, -0.999195, -0.00370576, 0.763614, -0.00825132 )
 
 [node name="casque" parent="pnjs/pnj11/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj11/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999973, 0.00250629, 0.00681806, 0.00245917, 0.999973, -0.00692612, -0.00683524, -0.00690997, -0.999952, -0.000996462, 0.764356, -0.00176376 )
+transform = Transform( -0.999593, 0.0101635, 0.0266376, 0.00936382, 0.999507, -0.0299785, -0.0269291, -0.0297176, -0.999195, -0.00370576, 0.763614, -0.00825132 )
 
 [node name="lunettes" parent="pnjs/pnj11/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10525,10 +10646,10 @@ couleur_cheveux = Color( 0.8906, 0.476207, 0.321117, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj5/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.998142, 0.00160889, 0.0608983, 0.00476436, 0.998651, 0.0517043, -0.0607329, 0.0518979, -0.996803, 0.00197591, 0.749862, 0.0978916 )
+transform = Transform( -0.999239, 0.0183584, -0.0343884, 0.0165345, 0.998479, 0.0525934, 0.0353016, 0.0519845, -0.998023, 0.00684533, 0.74981, 0.0978916 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj5/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.998142, 0.00160889, 0.0608983, 0.00476436, 0.998651, 0.0517043, -0.0607329, 0.0518979, -0.996803, 0.00197591, 0.749862, 0.0978916 )
+transform = Transform( -0.999239, 0.0183584, -0.0343884, 0.0165345, 0.998479, 0.0525934, 0.0353016, 0.0519845, -0.998023, 0.00684533, 0.74981, 0.0978916 )
 
 [node name="lunettes" parent="pnjs/pnj5/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10576,10 +10697,10 @@ couleur_cheveux = Color( 0.169082, 0.545436, 0.0189666, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj6/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999948, -0.00897028, -0.0046761, -0.0101158, 0.886705, 0.462225, 6.12312e-08, 0.462248, -0.88675, -0.00413707, 0.745041, 0.114079 )
+transform = Transform( -0.999889, -0.0138653, -0.00534621, -0.0148602, 0.932941, 0.359721, 8.26934e-08, 0.35976, -0.933044, -0.00613263, 0.748734, 0.10269 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj6/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999948, -0.00897028, -0.0046761, -0.0101158, 0.886705, 0.462225, 6.12312e-08, 0.462248, -0.88675, -0.00413707, 0.745041, 0.114079 )
+transform = Transform( -0.999889, -0.0138653, -0.00534621, -0.0148602, 0.932941, 0.359721, 8.26934e-08, 0.35976, -0.933044, -0.00613263, 0.748734, 0.10269 )
 
 [node name="body" parent="pnjs/pnj6/perso/Armature/Skeleton" index="3"]
 material/0 = SubResource( 85 )
@@ -10623,10 +10744,10 @@ couleur_cheveux = Color( 0.524619, 0.0789714, 0.264418, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj7/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999891, -0.0137838, -0.00505518, -0.0146815, 0.938752, 0.344279, 8.81168e-08, 0.344316, -0.938853, -0.00606667, 0.749267, 0.100937 )
+transform = Transform( -0.999981, -0.00583676, -0.00158875, -0.00604902, 0.964879, 0.262624, 9.188e-08, 0.262628, -0.964897, -0.00250558, 0.750296, 0.0980855 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj7/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999891, -0.0137838, -0.00505518, -0.0146815, 0.938752, 0.344279, 8.81168e-08, 0.344316, -0.938853, -0.00606667, 0.749267, 0.100937 )
+transform = Transform( -0.999981, -0.00583676, -0.00158875, -0.00604902, 0.964879, 0.262624, 9.188e-08, 0.262628, -0.964897, -0.00250558, 0.750296, 0.0980855 )
 
 [node name="body" parent="pnjs/pnj7/perso/Armature/Skeleton" index="3"]
 material/0 = SubResource( 90 )
@@ -10666,16 +10787,20 @@ lunettes = false
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/maitre_stage/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.998686, -0.0156148, -0.0488012, -0.0148266, 0.999754, -0.0164702, 0.0490464, -0.0157257, -0.998672, 0.00516592, 0.759548, -0.0126008 )
+transform = Transform( -0.999586, -0.00905393, -0.0272758, -0.00869148, 0.999873, -0.0133745, 0.0273934, -0.0131327, -0.999538, 0.00294811, 0.761791, -0.00565654 )
 
 [node name="BoneAttachment2" parent="pnjs/maitre_stage/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.998686, -0.0156148, -0.0488012, -0.0148266, 0.999754, -0.0164702, 0.0490464, -0.0157257, -0.998672, 0.00516592, 0.759548, -0.0126008 )
+transform = Transform( -0.999586, -0.00905393, -0.0272758, -0.00869148, 0.999873, -0.0133745, 0.0273934, -0.0131327, -0.999538, 0.00294811, 0.761791, -0.00565654 )
 
 [node name="lunettes" parent="pnjs/maitre_stage/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
 
 [node name="walls" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="wall" parent="walls" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7 )
@@ -10819,24 +10944,6 @@ shadow_enabled = true
 directional_shadow_depth_range = 1
 directional_shadow_max_distance = 25.0
 
-[node name="plafond" type="MeshInstance" parent="."]
-transform = Transform( 6.19385, 0, 0, 0, 0.1, 0, 0, 0, 6.38517, 1.03217, 3.96724, -2.94452 )
-cast_shadow = 0
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
-
-[node name="plafond3" type="MeshInstance" parent="."]
-transform = Transform( 5.20489, 0, 0, 0, 0.1, 0, 0, 0, 4.61455, 18.3672, 3.96724, -2.94452 )
-cast_shadow = 0
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
-
-[node name="plafond2" type="MeshInstance" parent="."]
-transform = Transform( 3.14871, 0, 0, 0, 0.1, 0, 0, 0, 1.55697, 10.3418, 3.96724, -2.04323 )
-cast_shadow = 0
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
-
 [node name="controls" type="Spatial" parent="."]
 
 [node name="table1" type="MeshInstance" parent="controls"]
@@ -10975,6 +11082,7 @@ collision_mask = 3
 shape = SubResource( 36 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 149 )
 anims/redalert = SubResource( 24 )
 anims/redlight_modulation = SubResource( 25 )
 
@@ -11071,6 +11179,79 @@ shape = SubResource( 144 )
 
 [node name="Camera3" type="Camera" parent="."]
 transform = Transform( 0.00653163, -0.126193, 0.991984, 0, 0.992005, 0.126196, -0.999979, -0.000824263, 0.00647941, 18.6651, 2.10642, 0.555271 )
+
+[node name="plafonds" type="Spatial" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="plafond" type="MeshInstance" parent="plafonds"]
+transform = Transform( 6.19385, 0, 0, 0, 0.1, 0, 0, 0, 6.38517, 1.03217, 3.96724, -2.94452 )
+cast_shadow = 0
+mesh = SubResource( 7 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 8 )
+
+[node name="plafond3" type="MeshInstance" parent="plafonds"]
+transform = Transform( 5.20489, 0, 0, 0, 0.1, 0, 0, 0, 4.61455, 18.3672, 3.96724, -2.94452 )
+cast_shadow = 0
+mesh = SubResource( 7 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 8 )
+
+[node name="plafond2" type="MeshInstance" parent="plafonds"]
+transform = Transform( 3.14871, 0, 0, 0, 0.1, 0, 0, 0, 1.55697, 10.3418, 3.96724, -2.04323 )
+cast_shadow = 0
+mesh = SubResource( 7 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 8 )
+
+[node name="glass" type="MeshInstance" parent="."]
+transform = Transform( 5.03593, 0, 0, 0, 1.75156, 0, 0, 0, 1, 18.4071, 1.69767, -5.95024 )
+mesh = SubResource( 146 )
+material/0 = SubResource( 147 )
+
+[node name="water" type="MeshInstance" parent="."]
+transform = Transform( 4.58731, 0.0169966, 0, -0.0800718, 0.973734, 0, 0, 0, 0.911055, 18.4071, 0.854807, -5.95024 )
+mesh = SubResource( 146 )
+material/0 = SubResource( 148 )
+
+[node name="water_movement" type="AnimationPlayer" parent="water"]
+root_node = NodePath("../..")
+autoplay = "water_move"
+anims/RESET = SubResource( 150 )
+anims/water_move = SubResource( 151 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 14.779, 3.59542, -5.8137 )
+light_energy = 4.0
+spot_range = 4.27719
+spot_angle = 44.253
+
+[node name="SpotLight2" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16.779, 3.59542, -5.8137 )
+light_energy = 4.0
+spot_range = 4.27719
+spot_angle = 44.253
+
+[node name="SpotLight3" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 18.779, 3.59542, -5.8137 )
+light_energy = 4.0
+spot_range = 4.27719
+spot_angle = 44.253
+
+[node name="SpotLight4" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.779, 3.59542, -5.8137 )
+light_energy = 4.0
+spot_range = 4.27719
+spot_angle = 44.253
+
+[node name="SpotLight5" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 22.779, 3.59542, -5.8137 )
+light_energy = 4.0
+spot_range = 4.27719
+spot_angle = 44.253
 
 [connection signal="fin_dialogue" from="dialogueIntro" to="." method="_on_dialogueIntro_fin_dialogue"]
 [connection signal="fin_dialogue" from="dialoguePanique" to="." method="_on_dialoguePanique_fin_dialogue"]
