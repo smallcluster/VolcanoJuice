@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://perso/casque.material" type="Material" id=1]
 [ext_resource path="res://perso/perso.gd" type="Script" id=2]
@@ -175,7 +175,7 @@ surfaces/2 = {
 [sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 1, 0.8, 0.6, 1 )
 
-[sub_resource type="SpatialMaterial" id=23]
+[sub_resource type="SpatialMaterial" id=22]
 
 [sub_resource type="ArrayMesh" id=6]
 resource_name = "perso_Cube006"
@@ -192,7 +192,7 @@ surfaces/0 = {
 "vertex_count": 1627
 }
 
-[sub_resource type="SpatialMaterial" id=24]
+[sub_resource type="SpatialMaterial" id=23]
 albedo_color = Color( 0.72, 0.53, 0.04, 1 )
 
 [sub_resource type="ArrayMesh" id=17]
@@ -225,7 +225,7 @@ surfaces/0 = {
 "vertex_count": 1407
 }
 
-[sub_resource type="SpatialMaterial" id=25]
+[sub_resource type="SpatialMaterial" id=24]
 albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="ArrayMesh" id=19]
@@ -243,7 +243,7 @@ surfaces/0 = {
 "vertex_count": 131
 }
 
-[sub_resource type="SpatialMaterial" id=26]
+[sub_resource type="SpatialMaterial" id=25]
 albedo_color = Color( 0, 0.5, 1, 1 )
 
 [sub_resource type="ArrayMesh" id=20]
@@ -1299,11 +1299,7 @@ tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = PoolRealArray( 0, 1, -0.00103168, 0.0142591, 0.00694662, -0.125676, -0.0177786, 0.0271711, 0.99154, 1, 1, 1, 0.0666667, 1, -0.00103168, 0.0142591, 0.00694662, -0.125678, -0.0174837, 0.0267203, 0.991557, 1, 1, 1, 0.133333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125689, -0.0158348, 0.0242004, 0.991648, 1, 1, 1, 0.2, 1, -0.00103168, 0.0142591, 0.00694662, -0.125702, -0.0137773, 0.0210559, 0.991749, 1, 1, 1, 0.266667, 1, -0.00103168, 0.0142591, 0.00694662, -0.125704, -0.013492, 0.0206198, 0.991762, 1, 1, 1, 0.333333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125683, -0.0167817, 0.0256475, 0.991597, 1, 1, 1, 0.4, 1, -0.00103168, 0.0142591, 0.00694662, -0.125645, -0.021495, 0.0328508, 0.991298, 1, 1, 1, 0.466667, 1, -0.00103168, 0.0142591, 0.00694662, -0.125626, -0.0235305, 0.0359617, 0.991146, 1, 1, 1, 0.533333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125641, -0.0218906, 0.0334555, 0.99127, 1, 1, 1, 0.666667, 1, -0.00103168, 0.0142591, 0.00694662, -0.125687, -0.016217, 0.0247844, 0.991628, 1, 1, 1, 0.733333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125698, -0.0145253, 0.0221991, 0.991714, 1, 1, 1, 0.8, 1, -0.00103168, 0.0142591, 0.00694662, -0.125703, -0.0135428, 0.0206975, 0.991759, 1, 1, 1, 0.866667, 1, -0.00103168, 0.0142591, 0.00694662, -0.125706, -0.0131303, 0.0200671, 0.991778, 1, 1, 1, 0.933333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125704, -0.013492, 0.0206198, 0.991762, 1, 1, 1, 1, 1, -0.00103168, 0.0142591, 0.00694662, -0.125683, -0.0167817, 0.0256475, 0.991597, 1, 1, 1, 1.06667, 1, -0.00103168, 0.0142591, 0.00694662, -0.125645, -0.021495, 0.0328508, 0.991298, 1, 1, 1, 1.13333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125626, -0.0235314, 0.0359631, 0.991146, 1, 1, 1, 1.2, 1, -0.00103168, 0.0142591, 0.00694662, -0.125641, -0.0219013, 0.0334718, 0.991269, 1, 1, 1, 1.33333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125687, -0.016183, 0.0247325, 0.99163, 1, 1, 1, 1.4, 1, -0.00103168, 0.0142591, 0.00694662, -0.125698, -0.0144253, 0.0220463, 0.991719, 1, 1, 1, 1.46667, 1, -0.00103168, 0.0142591, 0.00694662, -0.125704, -0.0134141, 0.0205009, 0.991765, 1, 1, 1, 1.53333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125706, -0.0130713, 0.0199769, 0.99178, 1, 1, 1, 1.6, 1, -0.00103168, 0.0142591, 0.00694662, -0.125693, -0.0152047, 0.0232374, 0.991681, 1, 1, 1, 1.66667, 1, -0.00103168, 0.0142591, 0.00694662, -0.125659, -0.0199184, 0.0304414, 0.991406, 1, 1, 1, 1.73333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125629, -0.0232069, 0.0354672, 0.991171, 1, 1, 1, 1.8, 1, -0.00103168, 0.0142591, 0.00694662, -0.125637, -0.0223273, 0.0341228, 0.991238, 1, 1, 1, 1.86667, 1, -0.00103168, 0.0142591, 0.00694662, -0.125665, -0.0190993, 0.0291895, 0.991459, 1, 1, 1, 1.93333, 1, -0.00103168, 0.0142591, 0.00694662, -0.125676, -0.0177786, 0.0271711, 0.99154, 1, 1, 1, 1.95833, 1, -0.00103168, 0.0142591, 0.00694662, -0.125676, -0.0177786, 0.0271711, 0.99154, 1, 1, 1 )
 
-[sub_resource type="CapsuleShape" id=22]
-radius = 0.195347
-height = 0.897511
-
-[node name="perso" type="KinematicBody"]
+[node name="perso" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="Armature" type="Spatial" parent="."]
@@ -1461,32 +1457,32 @@ material/1 = ExtResource( 4 )
 material/2 = ExtResource( 3 )
 
 [node name="chemise" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 23 )
+material_override = SubResource( 22 )
 mesh = SubResource( 6 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="cheveux_femme" type="MeshInstance" parent="Armature/Skeleton"]
 visible = false
-material_override = SubResource( 24 )
+material_override = SubResource( 23 )
 mesh = SubResource( 17 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="cheveux_homme" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 24 )
+material_override = SubResource( 23 )
 mesh = SubResource( 18 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="cravate" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 25 )
+material_override = SubResource( 24 )
 mesh = SubResource( 19 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="jean" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 26 )
+material_override = SubResource( 25 )
 mesh = SubResource( 20 )
 skin = SubResource( 4 )
 material/0 = null
@@ -1499,7 +1495,3 @@ anims/run_track = SubResource( 13 )
 anims/speaking_idle_track = SubResource( 14 )
 anims/stanfing_idle_track = SubResource( 15 )
 anims/typing_idle_track = SubResource( 16 )
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.635428, 0 )
-shape = SubResource( 22 )
