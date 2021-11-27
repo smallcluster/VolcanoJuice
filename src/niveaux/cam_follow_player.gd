@@ -16,16 +16,22 @@ onready var player = $player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$adventure_music.play()
+	var pnjs = $pnjs.get_children()
+	for pnj in pnjs:
+		self.connect("panique", pnj, "_on_world_panique")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	camera.look_at(player.transform.origin, Vector3.UP)
+	if player != null:
+		camera.look_at(player.transform.origin, Vector3.UP)
 	
 	
 func start_alarm():
+	$adventure_music.stop()
 	$AnimationPlayer.play("redlight_modulation")
 	$alarm_audio.play()
+	$action_music.play()
 	emit_signal("panique")
 	
