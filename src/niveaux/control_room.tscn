@@ -342,6 +342,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0910785, 0, -3.09441 )
 [node name="pnj" parent="pnjs" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70418, 0.00150192, 0.838623 )
 
+[node name="perso" parent="pnjs/pnj" index="0"]
+idle_anim = 1
+
+[node name="BoneAttachment" parent="pnjs/pnj/perso/Armature/Skeleton" index="0"]
+transform = Transform( -0.99999, 0.00413879, 0.00125252, 0.00432425, 0.957115, 0.289674, 1.09058e-07, 0.289677, -0.957124, 0.00177883, 0.747457, 0.10832 )
+
+[node name="BoneAttachment2" parent="pnjs/pnj/perso/Armature/Skeleton" index="1"]
+transform = Transform( -0.99999, 0.00413879, 0.00125252, 0.00432425, 0.957115, 0.289674, 1.09058e-07, 0.289677, -0.957124, 0.00177883, 0.747457, 0.10832 )
+
 [node name="pnj2" parent="pnjs" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61989, 0.00150192, 0.608866 )
 
@@ -593,4 +602,6 @@ volume_db = -10.0
 [connection signal="panique" from="." to="pnjs/pnj" method="_on_world_panique"]
 [connection signal="panique" from="." to="pnjs/pnj2" method="_on_world_panique"]
 
+[editable path="pnjs/pnj"]
+[editable path="pnjs/pnj/perso"]
 [editable path="alarm"]
