@@ -63,6 +63,8 @@ alignment = 1
 [node name="Start" type="Button" parent="ColorRect/Main/Menu"]
 margin_right = 1024.0
 margin_bottom = 45.0
+grow_horizontal = 0
+grow_vertical = 0
 custom_fonts/font = SubResource( 2 )
 text = "Start"
 
@@ -81,3 +83,5 @@ custom_fonts/font = SubResource( 4 )
 text = "Quit"
 
 [connection signal="pressed" from="ColorRect/Main/Menu/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="ColorRect/Main/Menu/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="ColorRect/Main/Menu/Quit" to="." method="_on_Quit_pressed"]

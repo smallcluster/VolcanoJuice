@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Font/Estonia-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Font/Sectar.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Font/Another Danger - Demo.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Font/Sectar_SP.otf" type="DynamicFontData" id=4]
 
@@ -9,10 +8,6 @@
 size = 95
 outline_color = Color( 1, 0, 0, 1 )
 font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 32
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -55,29 +50,19 @@ text = "Volcano Juice !"
 align = 1
 valign = 1
 
-[node name="Auteurs" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="Occasion" type="Label" parent="ColorRect/VBoxContainer"]
 margin_top = 169.0
 margin_right = 1024.0
-margin_bottom = 212.0
-custom_colors/font_color = Color( 0.847059, 0.847059, 0.847059, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "Un jeu de JAFFUER Pierre et de LE LIDEC Tristan"
-align = 1
-valign = 1
-
-[node name="Occasion" type="Label" parent="ColorRect/VBoxContainer"]
-margin_top = 216.0
-margin_right = 1024.0
-margin_bottom = 261.0
+margin_bottom = 214.0
 custom_fonts/font = SubResource( 3 )
 text = "Volcano Game Jam 2021"
 align = 1
 valign = 1
 
 [node name="Fonts" type="Label" parent="ColorRect/VBoxContainer"]
-margin_top = 265.0
+margin_top = 218.0
 margin_right = 1024.0
-margin_bottom = 391.0
+margin_bottom = 344.0
 custom_fonts/font = SubResource( 4 )
 text = "Font utilisées :
 Another Danger par The Branded Quotes
