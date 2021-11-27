@@ -1,11 +1,49 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://perso/perso.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/player.gd" type="Script" id=2]
 
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.7, 0.4, 0.3, 1 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0.79302, 0.322711, 0.564848, 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 0.396169, 0.0512162, 0.440619, 1 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.345098, 0.0901961, 0.372549, 1 )
+
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.179728
 height = 0.937209
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "stanfing_idle_track"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "run_track"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id=6]
+states/idle/node = SubResource( 9 )
+states/idle/position = Vector2( 314, 141 )
+states/run/node = SubResource( 8 )
+states/run/position = Vector2( 682, 141 )
+transitions = [ "idle", "run", SubResource( 10 ), "run", "idle", SubResource( 11 ) ]
+start_node = "idle"
+graph_offset = Vector2( -15, 1 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
 
 [node name="player" type="KinematicBody"]
 script = ExtResource( 2 )
@@ -15,10 +53,53 @@ sexe = 1
 peau = 2
 cravate = false
 casque = false
-couleur_chemise = Color( 0.537255, 0.854902, 0.862745, 1 )
-couleur_jean = Color( 0.584314, 0.235294, 0.411765, 1 )
-couleur_cheveux = Color( 0.156863, 0.0705882, 0.027451, 1 )
+couleur_chemise = Color( 0.79302, 0.322711, 0.564848, 1 )
+couleur_jean = Color( 0.345098, 0.0901961, 0.372549, 1 )
+couleur_cravate = Color( 0.396169, 0.0512162, 0.440619, 1 )
+couleur_cheveux = Color( 0, 0, 0, 1 )
+
+[node name="Skeleton" parent="perso/Armature" index="0"]
+bones/23/bound_children = [  ]
+
+[node name="BoneAttachment" parent="perso/Armature/Skeleton" index="0"]
+transform = Transform( -0.999686, 0.00731394, 0.0239315, 0.00716135, 0.999953, -0.00646067, -0.0239776, -0.0062881, -0.999692, -0.00318483, 0.763714, -0.0243576 )
+
+[node name="casque" parent="perso/Armature/Skeleton/BoneAttachment" index="0"]
+visible = false
+
+[node name="BoneAttachment2" parent="perso/Armature/Skeleton" index="1"]
+transform = Transform( -0.999686, 0.00731394, 0.0239315, 0.00716135, 0.999953, -0.00646067, -0.0239776, -0.0062881, -0.999692, -0.00318483, 0.763714, -0.0243576 )
+
+[node name="body" parent="perso/Armature/Skeleton" index="3"]
+material/0 = SubResource( 12 )
+material/1 = null
+
+[node name="chemise" parent="perso/Armature/Skeleton" index="4"]
+material_override = SubResource( 13 )
+
+[node name="cheveux_femme" parent="perso/Armature/Skeleton" index="5"]
+visible = true
+material_override = SubResource( 14 )
+
+[node name="cheveux_homme" parent="perso/Armature/Skeleton" index="6"]
+visible = false
+material_override = SubResource( 14 )
+
+[node name="cravate" parent="perso/Armature/Skeleton" index="7"]
+visible = false
+material_override = SubResource( 15 )
+
+[node name="jean" parent="perso/Armature/Skeleton" index="8"]
+material_override = SubResource( 16 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.649611, 0 )
 shape = SubResource( 1 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 6 )
+anim_player = NodePath("../perso/AnimationPlayer")
+active = true
+parameters/playback = SubResource( 7 )
+
+[editable path="perso"]

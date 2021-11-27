@@ -102,6 +102,8 @@ surfaces/0 = {
 anims/open = SubResource( 4 )
 
 [node name="wall" type="StaticBody" parent="." index="1"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="wall" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206608, 1.99158, -1.0121 )
@@ -116,6 +118,8 @@ material/2 = null
 material/3 = null
 
 [node name="door1" type="KinematicBody" parent="." index="2"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="door1" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.197556, 0.878097, -0.463248 )
@@ -127,6 +131,8 @@ skeleton = NodePath("../../wall/door_wall")
 material/0 = null
 
 [node name="door2" type="KinematicBody" parent="." index="3"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="door2" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.197556, 0.878097, -1.39788 )
@@ -136,3 +142,6 @@ shape = SubResource( 3 )
 mesh = SubResource( 5 )
 skeleton = NodePath("../../wall/door_wall")
 material/0 = null
+
+[node name="door_wall" parent="." index="4"]
+visible = false

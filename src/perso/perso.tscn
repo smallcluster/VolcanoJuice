@@ -172,10 +172,10 @@ surfaces/2 = {
 "vertex_count": 64
 }
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=22]
 albedo_color = Color( 1, 0.8, 0.6, 1 )
 
-[sub_resource type="SpatialMaterial" id=22]
+[sub_resource type="SpatialMaterial" id=23]
 
 [sub_resource type="ArrayMesh" id=6]
 resource_name = "perso_Cube006"
@@ -192,7 +192,7 @@ surfaces/0 = {
 "vertex_count": 1627
 }
 
-[sub_resource type="SpatialMaterial" id=23]
+[sub_resource type="SpatialMaterial" id=24]
 albedo_color = Color( 0.72, 0.53, 0.04, 1 )
 
 [sub_resource type="ArrayMesh" id=17]
@@ -225,7 +225,7 @@ surfaces/0 = {
 "vertex_count": 1407
 }
 
-[sub_resource type="SpatialMaterial" id=24]
+[sub_resource type="SpatialMaterial" id=25]
 albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="ArrayMesh" id=19]
@@ -243,7 +243,7 @@ surfaces/0 = {
 "vertex_count": 131
 }
 
-[sub_resource type="SpatialMaterial" id=25]
+[sub_resource type="SpatialMaterial" id=26]
 albedo_color = Color( 0, 0.5, 1, 1 )
 
 [sub_resource type="ArrayMesh" id=20]
@@ -438,6 +438,7 @@ tracks/23/keys = PoolRealArray( 0, 1, 0, 0, 0, 4.47035e-08, -1.36898e-09, -7.618
 resource_name = "run_panic_track"
 length = 0.625
 loop = true
+step = 0.01
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:toes.L")
 tracks/0/interp = 1
@@ -606,11 +607,29 @@ tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = PoolRealArray( 0, 1, -0.00294575, 0.0407139, 0.0198346, -0.112081, -0.0174048, 0.0274121, 0.993168, 1, 1, 1, 0.0666667, 1, -0.00281887, 0.0389602, 0.0189803, -0.112084, -0.0170624, 0.0268729, 0.993189, 1, 1, 1, 0.2, 1, -0.00163466, 0.0225931, 0.0110067, -0.112103, -0.0138666, 0.0218396, 0.99336, 1, 1, 1, 0.266667, 1, -0.00220389, 0.0304606, 0.0148395, -0.112097, -0.0148956, 0.0234602, 0.993309, 1, 1, 1, 0.333333, 1, -0.00294575, 0.0407139, 0.0198346, -0.112081, -0.0174048, 0.0274121, 0.993168, 1, 1, 1, 0.4, 1, -0.00245515, 0.0339332, 0.0165313, -0.112066, -0.0195843, 0.0308449, 0.993029, 1, 1, 1, 0.466667, 1, -0.00176154, 0.0243467, 0.011861, -0.112056, -0.0208444, 0.0328294, 0.992941, 1, 1, 1, 0.533333, 1, -0.00187307, 0.0258881, 0.0126119, -0.11206, -0.020299, 0.0319704, 0.99298, 1, 1, 1, 0.6, 1, -0.00273522, 0.0378042, 0.0184171, -0.112077, -0.0179728, 0.0283068, 0.993134, 1, 1, 1, 0.625, 1, -0.00294575, 0.0407139, 0.0198346, -0.112081, -0.0174048, 0.0274121, 0.993168, 1, 1, 1 )
+tracks/24/type = "method"
+tracks/24/path = NodePath(".")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0.202616, 0.478099 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_pas_audio"
+}, {
+"args": [  ],
+"method": "play_pas_audio"
+} ]
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "run_track"
 length = 0.625
 loop = true
+step = 0.0
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:toes.L")
 tracks/0/interp = 1
@@ -779,6 +798,23 @@ tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = PoolRealArray( 0, 1, -0.00294575, 0.0407139, 0.0198346, -0.112081, -0.0174048, 0.0274121, 0.993168, 1, 1, 1, 0.0666667, 1, -0.00281887, 0.0389602, 0.0189803, -0.112084, -0.0170624, 0.0268729, 0.993189, 1, 1, 1, 0.2, 1, -0.00163466, 0.0225931, 0.0110067, -0.112103, -0.0138666, 0.0218396, 0.99336, 1, 1, 1, 0.266667, 1, -0.00220389, 0.0304606, 0.0148395, -0.112097, -0.0148956, 0.0234602, 0.993309, 1, 1, 1, 0.333333, 1, -0.00294575, 0.0407139, 0.0198346, -0.112081, -0.0174048, 0.0274121, 0.993168, 1, 1, 1, 0.4, 1, -0.00245515, 0.0339332, 0.0165313, -0.112066, -0.0195843, 0.0308449, 0.993029, 1, 1, 1, 0.466667, 1, -0.00176154, 0.0243467, 0.011861, -0.112056, -0.0208444, 0.0328294, 0.992941, 1, 1, 1, 0.533333, 1, -0.00187307, 0.0258881, 0.0126119, -0.11206, -0.020299, 0.0319704, 0.99298, 1, 1, 1, 0.6, 1, -0.00273522, 0.0378042, 0.0184171, -0.112077, -0.0179728, 0.0283068, 0.993134, 1, 1, 1, 0.625, 1, -0.00294575, 0.0407139, 0.0198346, -0.112081, -0.0174048, 0.0274121, 0.993168, 1, 1, 1 )
+tracks/24/type = "method"
+tracks/24/path = NodePath(".")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0.198452, 0.46213 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_pas_audio"
+}, {
+"args": [  ],
+"method": "play_pas_audio"
+} ]
+}
 
 [sub_resource type="Animation" id=14]
 resource_name = "speaking_idle_track"
@@ -1424,10 +1460,10 @@ bones/23/name = "head"
 bones/23/parent = 22
 bones/23/rest = Transform( 0.999869, 0.016184, -9.31323e-10, -0.0155149, 0.958536, -0.28455, -0.00460515, 0.284513, 0.958661, -1.4139e-15, 0.0281541, -2.02581e-08 )
 bones/23/enabled = true
-bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
+bones/23/bound_children = [  ]
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( -0.999999, 0.000376893, -1.18278e-07, 0.000377027, 1, 5.06639e-07, 1.18278e-07, -1.78814e-07, -0.999999, -0.00888493, 0.758975, 9.40636e-08 )
+transform = Transform( -0.999925, 0.00421041, 0.0114502, 0.00407482, 0.999922, -0.0118484, -0.0114992, -0.0118016, -0.999863, -0.00166392, 0.764186, -0.00306105 )
 bone_name = "head"
 
 [node name="casque" type="MeshInstance" parent="Armature/Skeleton/BoneAttachment"]
@@ -1436,7 +1472,7 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( -0.999999, 0.000376893, -1.18278e-07, 0.000377027, 1, 5.06639e-07, 1.18278e-07, -1.78814e-07, -0.999999, -0.00888493, 0.758975, 9.40636e-08 )
+transform = Transform( -0.999925, 0.00421041, 0.0114502, 0.00407482, 0.999922, -0.0118484, -0.0114992, -0.0118016, -0.999863, -0.00166392, 0.764186, -0.00306105 )
 bone_name = "head"
 
 [node name="lunettes" type="MeshInstance" parent="Armature/Skeleton/BoneAttachment2"]
@@ -1452,37 +1488,37 @@ material/0 = null
 [node name="body" type="MeshInstance" parent="Armature/Skeleton"]
 mesh = SubResource( 5 )
 skin = SubResource( 4 )
-material/0 = SubResource( 7 )
-material/1 = ExtResource( 4 )
+material/0 = SubResource( 22 )
+material/1 = null
 material/2 = ExtResource( 3 )
 
 [node name="chemise" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 22 )
+material_override = SubResource( 23 )
 mesh = SubResource( 6 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="cheveux_femme" type="MeshInstance" parent="Armature/Skeleton"]
 visible = false
-material_override = SubResource( 23 )
+material_override = SubResource( 24 )
 mesh = SubResource( 17 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="cheveux_homme" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 23 )
+material_override = SubResource( 24 )
 mesh = SubResource( 18 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="cravate" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 24 )
+material_override = SubResource( 25 )
 mesh = SubResource( 19 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="jean" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 25 )
+material_override = SubResource( 26 )
 mesh = SubResource( 20 )
 skin = SubResource( 4 )
 material/0 = null
@@ -1495,3 +1531,5 @@ anims/run_track = SubResource( 13 )
 anims/speaking_idle_track = SubResource( 14 )
 anims/stanfing_idle_track = SubResource( 15 )
 anims/typing_idle_track = SubResource( 16 )
+
+[node name="pas" type="AudioStreamPlayer3D" parent="."]
