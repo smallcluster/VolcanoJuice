@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://control_room_assets/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://perso/perso.tscn" type="PackedScene" id=2]
 [ext_resource path="res://control_room_assets/wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://control_room_assets/wall_door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://control_room_assets/screen.glb" type="PackedScene" id=5]
+[ext_resource path="res://control_room_assets/keyboard.glb" type="PackedScene" id=6]
+[ext_resource path="res://control_room_assets/button.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ProceduralSky" id=6]
 sky_top_color = Color( 0.443137, 0.443137, 0.443137, 1 )
@@ -28,25 +30,22 @@ glow_bloom = 0.05
 [sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 0, 0, 0, 1 )
 
+[sub_resource type="CubeMesh" id=9]
+
 [node name="world" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.955211, 0.295924, 0, -0.295924, 0.955211, -0.488161, 2.09552, 2.87235 )
+transform = Transform( 0.836257, 0.0643928, -0.544543, 0, 0.993081, 0.117433, 0.548337, -0.0982042, 0.830471, -1.11183, 1.96009, 0.732337 )
 fov = 60.994
 
 [node name="floors" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7 )
-
-[node name="floor" parent="floors" instance=ExtResource( 1 )]
 
 [node name="floor2" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
 
 [node name="floor3" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
-
-[node name="floor4" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 
 [node name="floor5" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
@@ -72,17 +71,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6 )
 [node name="floor12" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6 )
 
-[node name="floor13" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
-
 [node name="floor14" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4 )
 
 [node name="floor15" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6 )
-
-[node name="floor16" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
 
 [node name="floor17" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
@@ -126,38 +119,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8 )
 [node name="floor34" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 8 )
 
-[node name="floor35" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10 )
-
-[node name="floor36" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 10 )
-
 [node name="floor37" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8 )
 
-[node name="floor40" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 10 )
-
-[node name="floor41" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12 )
-
-[node name="floor45" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 12 )
-
-[node name="floor46" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 12 )
-
-[node name="floor49" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
-
 [node name="floor50" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8 )
-
-[node name="floor51" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 10 )
-
-[node name="floor52" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 
 [node name="floor53" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8 )
@@ -165,31 +131,31 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8 )
 [node name="floor54" parent="floors" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8 )
 
-[node name="floor55" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 10 )
-
-[node name="floor56" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 10 )
-
-[node name="floor57" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 12 )
-
-[node name="floor58" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 12 )
-
-[node name="floor61" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12 )
-
-[node name="floor62" parent="floors" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 12 )
-
 [node name="pnjs" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614903, 0, -0.0520065 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0910785, 0, -3.09441 )
 
 [node name="perso" parent="pnjs" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65866, 0, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0756543, 0, -2.92634 )
 sexe = 1
 casque = false
+
+[node name="BoneAttachment" parent="pnjs/perso/Armature/Skeleton" index="0"]
+transform = Transform( -0.992478, 0.023591, -0.120123, 0.0171796, 0.998386, 0.0541324, 0.121207, 0.0516612, -0.991281, 0.00716054, 0.749804, 0.0978918 )
+
+[node name="casque" parent="pnjs/perso/Armature/Skeleton/BoneAttachment" index="0"]
+visible = false
+
+[node name="BoneAttachment2" parent="pnjs/perso/Armature/Skeleton" index="1"]
+transform = Transform( -0.992478, 0.023591, -0.120123, 0.0171796, 0.998386, 0.0541324, 0.121207, 0.0516612, -0.991281, 0.00716054, 0.749804, 0.0978918 )
+
+[node name="cheveux_femme" parent="pnjs/perso/Armature/Skeleton" index="5"]
+visible = true
+
+[node name="cheveux_homme" parent="pnjs/perso/Armature/Skeleton" index="6"]
+visible = false
+
+[node name="AnimationPlayer" parent="pnjs/perso" index="1"]
+autoplay = "typing_idle_track"
 
 [node name="perso2" parent="pnjs" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36936, 0, 0 )
@@ -209,25 +175,19 @@ couleur_cheveux = Color( 0.067928, 0.566426, 0.289326, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 
 [node name="wall" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7 )
 
 [node name="wall2" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5 )
 
 [node name="wall3" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3 )
 
 [node name="wall4" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1 )
 
 [node name="wall5" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 1 )
-
-[node name="wall6" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 3 )
-
-[node name="wall7" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1 )
 
 [node name="wall26" parent="walls" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 6, 0, -7 )
@@ -247,20 +207,11 @@ transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2, 0, -7
 [node name="wall31" parent="walls" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -4, 0, -7 )
 
-[node name="wall32" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -6, 0, -7 )
-
-[node name="wall8" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, 7 )
-
-[node name="wall9" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, 5 )
-
 [node name="wall10" parent="walls" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, 3 )
 
 [node name="wall12" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, -1 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, 1 )
 
 [node name="wall13" parent="walls" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, -3 )
@@ -268,26 +219,23 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, -
 [node name="wall14" parent="walls" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, -5 )
 
-[node name="wall33" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -8, 0, 7 )
-
 [node name="wall34" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -6, 0, 7 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -6, 0, 3 )
 
 [node name="wall35" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -4, 0, 7 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -4, 0, 3 )
 
 [node name="wall36" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 0, 7 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 0, 3 )
 
 [node name="wall37" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 1.19209e-06, 0, 7 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 1.19209e-06, 0, 3 )
 
 [node name="wall38" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2, 0, 7 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 2, 0, 3 )
 
 [node name="wall39" parent="walls" instance=ExtResource( 3 )]
-transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 4, 0, 7 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 4, 0, 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 4 )
@@ -300,7 +248,7 @@ directional_shadow_depth_range = 1
 directional_shadow_max_distance = 25.0
 
 [node name="wall_door" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, 0, -1 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, 0, -3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 7.5, 0, 0, 0, 0.1, 0, 0, 0, 7.5, 0, 3.96724, 0 )
@@ -310,3 +258,62 @@ material/0 = SubResource( 8 )
 
 [node name="screen" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 2, -7.2 )
+
+[node name="controls" type="Spatial" parent="."]
+
+[node name="table1" type="MeshInstance" parent="controls"]
+transform = Transform( 2.47486, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.570318, -7.2521 )
+mesh = SubResource( 9 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="button" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -2.30137, 0.389349, -6.82387 )
+couleur = Color( 0.667771, 0.36475, 0.635744, 1 )
+
+[node name="button2" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -1.82243, 0.389349, -6.82387 )
+couleur = Color( 0.543368, 0.531589, 0.323091, 1 )
+
+[node name="button3" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -1.29535, 0.389349, -6.82387 )
+couleur = Color( 0.766797, 0.433878, 0.0503567, 1 )
+
+[node name="button4" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.813565, 0.389349, -6.82387 )
+couleur = Color( 0.0459245, 0.587418, 0.877065, 1 )
+
+[node name="button5" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.292244, 0.389349, -6.82387 )
+couleur = Color( 0.688602, 0.115724, 0.119456, 1 )
+
+[node name="button6" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.186698, 0.389349, -6.82387 )
+couleur = Color( 0.826694, 0.74533, 0.752232, 1 )
+
+[node name="button7" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.713777, 0.389349, -6.82387 )
+couleur = Color( 0.414569, 0.359195, 0.363973, 1 )
+
+[node name="button8" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 1.19556, 0.389349, -6.82387 )
+couleur = Color( 0.785099, 0.352334, 0.0442266, 1 )
+
+[node name="button9" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 1.78602, 0.389349, -6.82387 )
+couleur = Color( 0.967518, 0.827205, 0.327712, 1 )
+
+[node name="button10" parent="controls" instance=ExtResource( 7 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 2.3131, 0.389349, -6.82387 )
+couleur = Color( 0.296895, 0.450405, 0.56367, 1 )
+
+[node name="keyboard" parent="controls" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158616, 0.412333, -6.38415 )
+
+[node name="keyboard2" parent="controls" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53807, 0.412333, -6.38415 )
+
+[node name="keyboard3" parent="controls" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39343, 0.412333, -6.38415 )
+
+[editable path="pnjs/perso"]
