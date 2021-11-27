@@ -175,7 +175,7 @@ surfaces/2 = {
 [sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 1, 0.8, 0.6, 1 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=23]
 
 [sub_resource type="ArrayMesh" id=6]
 resource_name = "perso_Cube006"
@@ -192,7 +192,7 @@ surfaces/0 = {
 "vertex_count": 1627
 }
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=24]
 albedo_color = Color( 0.72, 0.53, 0.04, 1 )
 
 [sub_resource type="ArrayMesh" id=17]
@@ -225,7 +225,7 @@ surfaces/0 = {
 "vertex_count": 1407
 }
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=25]
 albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="ArrayMesh" id=19]
@@ -243,7 +243,7 @@ surfaces/0 = {
 "vertex_count": 131
 }
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=26]
 albedo_color = Color( 0, 0.5, 1, 1 )
 
 [sub_resource type="ArrayMesh" id=20]
@@ -1305,10 +1305,6 @@ height = 0.897511
 
 [node name="perso" type="KinematicBody"]
 script = ExtResource( 2 )
-couleur_chemise = Color( 0.776588, 0.67316, 0.829679, 1 )
-couleur_jean = Color( 0.72054, 0.198816, 0.26982, 1 )
-couleur_cravate = Color( 0.130239, 0.544691, 0.301723, 1 )
-couleur_cheveux = Color( 0.122364, 0.599412, 0.798126, 1 )
 
 [node name="Armature" type="Spatial" parent="."]
 
@@ -1435,7 +1431,7 @@ bones/23/enabled = true
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( -0.999994, 0.00118909, 0.00322519, 0.00117868, 0.999994, -0.00323081, -0.00322901, -0.00322714, -0.999989, -0.000472517, 0.764484, -0.000806834 )
+transform = Transform( -0.999999, 0.000376893, -1.18278e-07, 0.000377027, 1, 5.06639e-07, 1.18278e-07, -1.78814e-07, -0.999999, -0.00888493, 0.758975, 9.40636e-08 )
 bone_name = "head"
 
 [node name="casque" type="MeshInstance" parent="Armature/Skeleton/BoneAttachment"]
@@ -1444,7 +1440,7 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( -0.999994, 0.00118909, 0.00322519, 0.00117868, 0.999994, -0.00323081, -0.00322901, -0.00322714, -0.999989, -0.000472517, 0.764484, -0.000806834 )
+transform = Transform( -0.999999, 0.000376893, -1.18278e-07, 0.000377027, 1, 5.06639e-07, 1.18278e-07, -1.78814e-07, -0.999999, -0.00888493, 0.758975, 9.40636e-08 )
 bone_name = "head"
 
 [node name="lunettes" type="MeshInstance" parent="Armature/Skeleton/BoneAttachment2"]
@@ -1465,32 +1461,32 @@ material/1 = ExtResource( 4 )
 material/2 = ExtResource( 3 )
 
 [node name="chemise" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 8 )
+material_override = SubResource( 23 )
 mesh = SubResource( 6 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="cheveux_femme" type="MeshInstance" parent="Armature/Skeleton"]
 visible = false
-material_override = SubResource( 9 )
+material_override = SubResource( 24 )
 mesh = SubResource( 17 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="cheveux_homme" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 9 )
+material_override = SubResource( 24 )
 mesh = SubResource( 18 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="cravate" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 10 )
+material_override = SubResource( 25 )
 mesh = SubResource( 19 )
 skin = SubResource( 4 )
 material/0 = null
 
 [node name="jean" type="MeshInstance" parent="Armature/Skeleton"]
-material_override = SubResource( 11 )
+material_override = SubResource( 26 )
 mesh = SubResource( 20 )
 skin = SubResource( 4 )
 material/0 = null
