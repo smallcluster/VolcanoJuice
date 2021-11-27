@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://control_room_assets/button.glb" type="PackedScene" id=1]
+[ext_resource path="res://control_room_assets/button.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.143552, 0.584521, 0.0489906, 1 )
+
+[node name="button" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+couleur = Color( 0.143552, 0.584521, 0.0489906, 1 )
+
+[node name="button" parent="." index="0"]
+material/1 = SubResource( 1 )
