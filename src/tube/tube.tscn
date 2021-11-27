@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0033741, -0.0479798, 0.0307183, 0, 0, 0, 0, 0, 0, 0.0769501, 0.0856825, -7.48795 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[node name="tube" type="Spatial"]
+
+[node name="CSGPolygon" type="CSGPolygon" parent="."]
+polygon = PoolVector2Array( 0, 1, 0.7, 0.7, 1, 0, 0.7, -0.7, 0, -1, -0.7, -0.7, -1, 0, -0.7, 0.7 )
+mode = 2
+path_node = NodePath("../Path")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.3
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+smooth_faces = true
+
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 1 )
