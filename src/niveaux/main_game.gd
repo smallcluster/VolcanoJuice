@@ -13,6 +13,7 @@ onready var dernier_diag = $dialoguePanique
 onready var billboard_anim = $start_diag/diaIndicator/AnimationPlayer
 onready var plop = $start_diag/plop
 onready var maitre_pos = $pnjs/maitre_stage.transform.origin
+onready var camera_epuration = $Camera3
 
 var in_area_diag = false
 var in_dialogue = false
@@ -54,6 +55,7 @@ func _ready():
 func _process(delta):
 	if player != null:
 		camera.look_at(player.transform.origin, Vector3.UP)
+		camera_epuration.look_at(player.transform.origin, Vector3.UP)
 		
 	if in_area_diag:
 		if Input.is_action_pressed("ui_accept"):
@@ -120,3 +122,8 @@ func _on_couloir_body_entered(body):
 func _on_salle_controle_body_entered(body):
 	if body.is_in_group("player_group"):
 		camera.current = true
+
+
+func _on_salle_epuration_body_entered(body):
+	if body.is_in_group("player_group"):
+		camera_epuration.current = true
