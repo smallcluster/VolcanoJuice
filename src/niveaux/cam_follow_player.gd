@@ -16,7 +16,8 @@ onready var player = $player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$adventure_music.play()
+	if not Engine.editor_hint:
+		$adventure_music.play()
 	var pnjs = $pnjs.get_children()
 	for pnj in pnjs:
 		self.connect("panique", pnj, "_on_world_panique")

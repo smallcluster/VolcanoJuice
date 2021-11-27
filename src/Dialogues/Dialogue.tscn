@@ -12,11 +12,13 @@ size = 36
 font_data = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect"]
-margin_left = 191.0
-margin_top = 389.0
-margin_right = 791.0
-margin_bottom = 509.0
-rect_min_size = Vector2( 600, 120 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = -120.0
+margin_right = -100.0
+rect_min_size = Vector2( 0, 120 )
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -24,9 +26,9 @@ __meta__ = {
 }
 
 [node name="Name" type="RichTextLabel" parent="."]
-margin_right = 200.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 200, 0 )
+anchor_right = 1.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "Name"
 __meta__ = {
@@ -34,11 +36,11 @@ __meta__ = {
 }
 
 [node name="Text" type="RichTextLabel" parent="."]
-margin_left = 30.0
-margin_top = 50.0
-margin_right = 580.0
-margin_bottom = 110.0
-rect_min_size = Vector2( 550, 60 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -60.0
+rect_min_size = Vector2( 0, 60 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 text = "Text"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://control_room_assets/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://pnj/pnj.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://niveaux/alarm.wav" type="AudioStream" id=11]
 [ext_resource path="res://Musics/fight_looped.wav" type="AudioStream" id=12]
 [ext_resource path="res://Musics/children_soundtrack_2.wav" type="AudioStream" id=13]
+[ext_resource path="res://Dialogues/Dialogue.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpatialMaterial" id=68]
 albedo_color = Color( 0.746043, 0.0652286, 0.438993, 1 )
@@ -10138,10 +10139,10 @@ couleur_jean = Color( 0.662571, 0.936215, 0.14608, 1 )
 couleur_cheveux = Color( 0.937526, 0.928739, 0.710988, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999629, -0.0158366, -0.0221495, -0.0169658, 0.998515, 0.0517631, 0.0212969, 0.0521193, -0.998413, -0.00702099, 0.749805, 0.0979012 )
+transform = Transform( -0.999972, -0.00709288, -0.0019738, -0.0073623, 0.96337, 0.268074, 9.78446e-08, 0.26808, -0.963396, -0.00305213, 0.750644, 0.0966831 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999629, -0.0158366, -0.0221495, -0.0169658, 0.998515, 0.0517631, 0.0212969, 0.0521193, -0.998413, -0.00702099, 0.749805, 0.0979012 )
+transform = Transform( -0.999972, -0.00709288, -0.0019738, -0.0073623, 0.96337, 0.268074, 9.78446e-08, 0.26808, -0.963396, -0.00305213, 0.750644, 0.0966831 )
 
 [node name="lunettes" parent="pnjs/pnj/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10172,10 +10173,10 @@ couleur_cravate = Color( 0.200466, 0.269956, 0.626311, 1 )
 couleur_cheveux = Color( 0.0369748, 0.971596, 0.756772, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj3/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.99988, -0.0140923, -0.00633747, -0.0154516, 0.911912, 0.410095, 5.00402e-08, 0.410144, -0.91202, -0.00634823, 0.746888, 0.108466 )
+transform = Transform( -0.999447, 0.00693682, 0.0325009, 0.00861317, 0.998624, 0.0517229, -0.0320974, 0.0519739, -0.998132, 0.00356613, 0.749851, 0.0978916 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj3/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.99988, -0.0140923, -0.00633747, -0.0154516, 0.911912, 0.410095, 5.00402e-08, 0.410144, -0.91202, -0.00634823, 0.746888, 0.108466 )
+transform = Transform( -0.999447, 0.00693682, 0.0325009, 0.00861317, 0.998624, 0.0517229, -0.0320974, 0.0519739, -0.998132, 0.00356613, 0.749851, 0.0978916 )
 
 [node name="lunettes" parent="pnjs/pnj3/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10221,10 +10222,10 @@ couleur_cravate = Color( 0.262378, 0.570854, 0.0152157, 1 )
 couleur_cheveux = Color( 0.858662, 0.36601, 0.138128, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj4/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999936, 0.0104726, 0.00399255, 0.011208, 0.934337, 0.356213, 1.05802e-07, 0.356235, -0.934396, 0.00460316, 0.746773, 0.110372 )
+transform = Transform( -0.995771, -0.0112224, -0.0911695, -0.015885, 0.998594, 0.0505798, 0.0904736, 0.0518138, -0.994549, -0.00660072, 0.749813, 0.0978918 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj4/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999936, 0.0104726, 0.00399255, 0.011208, 0.934337, 0.356213, 1.05802e-07, 0.356235, -0.934396, 0.00460316, 0.746773, 0.110372 )
+transform = Transform( -0.995771, -0.0112224, -0.0911695, -0.015885, 0.998594, 0.0505798, 0.0904736, 0.0518138, -0.994549, -0.00660072, 0.749813, 0.0978918 )
 
 [node name="lunettes" parent="pnjs/pnj4/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10270,13 +10271,13 @@ couleur_cravate = Color( 0.86415, 0.308767, 0.876541, 1 )
 couleur_cheveux = Color( 0.902265, 0.724683, 0.146116, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj8/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999996, -0.00182102, 0.00165521, -0.00182092, 0.999998, 5.1558e-06, -0.00165522, 1.46031e-06, -0.999998, 0.00473923, 0.764595, -5.75557e-07 )
+transform = Transform( -0.99985, 0.00538984, 0.0164271, 0.00563318, 0.999874, 0.0147976, -0.0163453, 0.0148874, -0.999755, 0.00061941, 0.764528, -0.00199954 )
 
 [node name="casque" parent="pnjs/pnj8/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj8/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999996, -0.00182102, 0.00165521, -0.00182092, 0.999998, 5.1558e-06, -0.00165522, 1.46031e-06, -0.999998, 0.00473923, 0.764595, -5.75557e-07 )
+transform = Transform( -0.99985, 0.00538984, 0.0164271, 0.00563318, 0.999874, 0.0147976, -0.0163453, 0.0148874, -0.999755, 0.00061941, 0.764528, -0.00199954 )
 
 [node name="lunettes" parent="pnjs/pnj8/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10323,13 +10324,13 @@ couleur_cravate = Color( 0.413266, 0.347933, 0.466957, 1 )
 couleur_cheveux = Color( 0.411765, 0.278431, 0.207843, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj9/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999999, 7.21186e-05, 0.000194646, 7.21754e-05, 1, -0.000191569, -0.000194661, -0.000192255, -0.999999, -2.85411e-05, 0.764591, -4.68623e-05 )
+transform = Transform( -0.99917, -0.0117645, -0.0389854, -0.0119475, 0.999919, 0.00446673, 0.0389297, 0.00492801, -0.999229, 0.00412239, 0.761329, -0.0213421 )
 
 [node name="casque" parent="pnjs/pnj9/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj9/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999999, 7.21186e-05, 0.000194646, 7.21754e-05, 1, -0.000191569, -0.000194661, -0.000192255, -0.999999, -2.85411e-05, 0.764591, -4.68623e-05 )
+transform = Transform( -0.99917, -0.0117645, -0.0389854, -0.0119475, 0.999919, 0.00446673, 0.0389297, 0.00492801, -0.999229, 0.00412239, 0.761329, -0.0213421 )
 
 [node name="lunettes" parent="pnjs/pnj9/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10376,13 +10377,13 @@ couleur_cravate = Color( 0.444, 0.81466, 0.37844, 1 )
 couleur_cheveux = Color( 0.409717, 0.570208, 0.985189, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj10/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999978, -0.00657986, -9.0804e-08, -0.00657978, 0.999978, 5.06639e-07, 9.22009e-08, -2.08616e-07, -0.999999, 0.00222639, 0.764579, 8.47504e-08 )
+transform = Transform( -0.985194, 0.0398444, 0.166742, 0.0673954, 0.984323, 0.162993, -0.157634, 0.171817, -0.972434, 0.0079014, 0.763276, -0.0265814 )
 
 [node name="casque" parent="pnjs/pnj10/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj10/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999978, -0.00657986, -9.0804e-08, -0.00657978, 0.999978, 5.06639e-07, 9.22009e-08, -2.08616e-07, -0.999999, 0.00222639, 0.764579, 8.47504e-08 )
+transform = Transform( -0.985194, 0.0398444, 0.166742, 0.0673954, 0.984323, 0.162993, -0.157634, 0.171817, -0.972434, 0.0079014, 0.763276, -0.0265814 )
 
 [node name="lunettes" parent="pnjs/pnj10/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10429,13 +10430,13 @@ couleur_cravate = Color( 0.979248, 0.510684, 0.453764, 1 )
 couleur_cheveux = Color( 0.391178, 0.6739, 0.0907809, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj11/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999566, 0.0104932, 0.0274828, 0.00964243, 0.999475, -0.0309129, -0.0277928, -0.0306352, -0.999143, -0.00381698, 0.763579, -0.00853412 )
+transform = Transform( -0.999069, -0.013574, -0.0409204, -0.0128703, 0.999765, -0.0174086, 0.0411471, -0.0168665, -0.99901, 0.0043287, 0.760418, -0.00921242 )
 
 [node name="casque" parent="pnjs/pnj11/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj11/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999566, 0.0104932, 0.0274828, 0.00964243, 0.999475, -0.0309129, -0.0277928, -0.0306352, -0.999143, -0.00381698, 0.763579, -0.00853412 )
+transform = Transform( -0.999069, -0.013574, -0.0409204, -0.0128703, 0.999765, -0.0174086, 0.0411471, -0.0168665, -0.99901, 0.0043287, 0.760418, -0.00921242 )
 
 [node name="lunettes" parent="pnjs/pnj11/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10479,10 +10480,10 @@ couleur_cravate = Color( 0.543702, 0.805214, 0.8076, 1 )
 couleur_cheveux = Color( 0.8906, 0.476207, 0.321117, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj5/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999999, -0.000186521, -4.82039e-05, -0.000192559, 0.968402, 0.249396, 1.7797e-07, 0.249395, -0.968401, -7.93064e-05, 0.74775, 0.107377 )
+transform = Transform( -0.999848, 0.00227819, 0.0172667, 0.00513102, 0.985939, 0.167026, -0.0166434, 0.167088, -0.985801, 0.0017241, 0.749863, 0.0978914 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj5/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999999, -0.000186521, -4.82039e-05, -0.000192559, 0.968402, 0.249396, 1.7797e-07, 0.249395, -0.968401, -7.93064e-05, 0.74775, 0.107377 )
+transform = Transform( -0.999848, 0.00227819, 0.0172667, 0.00513102, 0.985939, 0.167026, -0.0166434, 0.167088, -0.985801, 0.0017241, 0.749863, 0.0978914 )
 
 [node name="lunettes" parent="pnjs/pnj5/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10527,10 +10528,10 @@ couleur_cravate = Color( 0.943752, 0.81723, 0.0385306, 1 )
 couleur_cheveux = Color( 0.169082, 0.545436, 0.0189666, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj6/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.984977, -0.0216998, 0.17131, -0.00882055, 0.9971, 0.0755865, -0.172454, 0.0729396, -0.982313, -0.00449691, 0.749842, 0.0978913 )
+transform = Transform( -0.985638, 0.00462542, -0.168802, -0.00411047, 0.998671, 0.0513666, 0.168816, 0.0513223, -0.98431, -0.00172558, 0.749862, 0.0978918 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj6/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.984977, -0.0216998, 0.17131, -0.00882055, 0.9971, 0.0755865, -0.172454, 0.0729396, -0.982313, -0.00449691, 0.749842, 0.0978913 )
+transform = Transform( -0.985638, 0.00462542, -0.168802, -0.00411047, 0.998671, 0.0513666, 0.168816, 0.0513223, -0.98431, -0.00172558, 0.749862, 0.0978918 )
 
 [node name="body" parent="pnjs/pnj6/perso/Armature/Skeleton" index="3"]
 material/0 = SubResource( 85 )
@@ -10571,10 +10572,10 @@ couleur_cravate = Color( 0.891905, 0.398197, 0.0908378, 1 )
 couleur_cheveux = Color( 0.524619, 0.0789714, 0.264418, 1 )
 
 [node name="BoneAttachment" parent="pnjs/pnj7/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999891, -0.0147015, -0.00107795, -0.0147409, 0.997215, 0.0731094, 1.42068e-07, 0.0731169, -0.997323, -0.00609465, 0.749498, 0.099559 )
+transform = Transform( -0.999913, 0.0131444, -0.000605871, 0.0130952, 0.99856, 0.0520213, 0.00128879, 0.0520085, -0.998645, 0.00541834, 0.749831, 0.0978915 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj7/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999891, -0.0147015, -0.00107795, -0.0147409, 0.997215, 0.0731094, 1.42068e-07, 0.0731169, -0.997323, -0.00609465, 0.749498, 0.099559 )
+transform = Transform( -0.999913, 0.0131444, -0.000605871, 0.0130952, 0.99856, 0.0520213, 0.00128879, 0.0520085, -0.998645, 0.00541834, 0.749831, 0.0978915 )
 
 [node name="body" parent="pnjs/pnj7/perso/Armature/Skeleton" index="3"]
 material/0 = SubResource( 90 )
@@ -10611,10 +10612,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0209815, 0.00150192, 2.20397
 lunettes = false
 
 [node name="BoneAttachment" parent="pnjs/pnj2/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999111, 0.0137912, 0.039816, 0.011934, 0.998846, -0.0465154, -0.0404116, -0.0459997, -0.998123, -0.00561382, 0.762917, -0.0158581 )
+transform = Transform( -0.999809, -0.00518892, -0.0188146, -0.00552845, 0.999822, 0.0180432, 0.0187176, 0.0181429, -0.999659, 0.00215968, 0.763489, -0.026058 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj2/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999111, 0.0137912, 0.039816, 0.011934, 0.998846, -0.0465154, -0.0404116, -0.0459997, -0.998123, -0.00561382, 0.762917, -0.0158581 )
+transform = Transform( -0.999809, -0.00518892, -0.0188146, -0.00552845, 0.999822, 0.0180432, 0.0187176, 0.0181429, -0.999659, 0.00215968, 0.763489, -0.026058 )
 
 [node name="lunettes" parent="pnjs/pnj2/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10870,6 +10871,9 @@ volume_db = -6.0
 [node name="adventure_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 volume_db = -5.0
+
+[node name="ColorRect" parent="." instance=ExtResource( 14 )]
+dialogPath = "res://Dialogues/control_diag.json"
 
 [editable path="pnjs/pnj"]
 [editable path="pnjs/pnj/perso"]
