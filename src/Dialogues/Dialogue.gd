@@ -1,5 +1,7 @@
 extends ColorRect
 
+signal fin_dialogue()
+
 export var dialogPath = ""
 export(float) var textSpeed = 0.05
 
@@ -37,6 +39,7 @@ func getDialog() -> Array:
 func nextPhrase() -> void:
 	if phraseNum >= len(dialog):
 		queue_free()
+		emit_signal("fin_dialogue")
 		return
 		
 	finished = false

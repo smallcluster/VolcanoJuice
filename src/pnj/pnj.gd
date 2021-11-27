@@ -29,6 +29,10 @@ func _on_world_panique():
 	$perso.set_suprised(true)
 	$perso/AnimationPlayer.play("run_panic_track")
 	panique = true
+	
+func _on_world_surprise():
+	$perso.set_suprised(true)
+	$perso.set_idle_anim($perso.IDLE.standing)
 
 func turn_face(target, rotationSpeed, delta):
 	var global_pos = global_transform.origin
