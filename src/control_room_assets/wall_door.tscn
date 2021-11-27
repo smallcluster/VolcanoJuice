@@ -1,16 +1,69 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://control_room_assets/wall_door.glb" type="PackedScene" id=1]
 [ext_resource path="res://control_room_assets/door_mount.material" type="Material" id=2]
 [ext_resource path="res://control_room_assets/wallpaint.material" type="Material" id=3]
 [ext_resource path="res://control_room_assets/warnblack.material" type="Material" id=4]
 [ext_resource path="res://control_room_assets/warnyellow.material" type="Material" id=5]
+[ext_resource path="res://control_room_assets/alarm.glb" type="PackedScene" id=6]
+[ext_resource path="res://control_room_assets/wall_door.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("door1:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("door2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "open"
+tracks/0/type = "value"
+tracks/0/path = NodePath("door1:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("door2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -1 ) ]
+}
 
 [sub_resource type="BoxShape" id=6]
-extents = Vector3( 0.228269, 2, 1 )
+extents = Vector3( 0.228269, 1, 1 )
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "wall_door_Plane012"
@@ -63,6 +116,9 @@ surfaces/3 = {
 "vertex_count": 80
 }
 
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.261731, 1, 0.167592 )
+
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.116808, 1, 0.462461 )
 
@@ -96,9 +152,114 @@ surfaces/0 = {
 "vertex_count": 140
 }
 
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("alarm2/alarm:mesh:surface_2/material:emission_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("alarm/alarm:mesh:surface_2/material:emission_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "alert"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.5, 0.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.5, 0.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("alarm2/alarm:mesh:surface_2/material:emission_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("alarm/alarm:mesh:surface_2/material:emission_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
 [node name="wall_door" instance=ExtResource( 1 )]
+script = ExtResource( 7 )
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
+anims/RESET = SubResource( 9 )
 anims/open = SubResource( 4 )
 
 [node name="wall" type="StaticBody" parent="." index="1"]
@@ -106,7 +267,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="wall" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206608, 1.99158, -1.0121 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206608, 2.99158, -1.0121 )
 shape = SubResource( 6 )
 
 [node name="door_wall" type="MeshInstance" parent="wall" index="1"]
@@ -116,6 +277,14 @@ material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
+
+[node name="CollisionShape2" type="CollisionShape" parent="wall" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1, -0.160301 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="wall" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1, -1.83279 )
+shape = SubResource( 10 )
 
 [node name="door1" type="KinematicBody" parent="." index="2"]
 collision_layer = 3
@@ -145,3 +314,30 @@ material/0 = null
 
 [node name="door_wall" parent="." index="4"]
 visible = false
+
+[node name="OmniLight" type="OmniLight" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.787334, 2.04911, -0.946017 )
+light_color = Color( 1, 0.0784314, 0.0784314, 1 )
+light_energy = 0.0
+shadow_enabled = true
+omni_range = 17.3813
+
+[node name="alarm" parent="." index="6" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.396604, 2.05864, -0.952327 )
+
+[node name="OmniLight2" type="OmniLight" parent="." index="7"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.388645, 2.04911, -0.952327 )
+light_color = Color( 1, 0.0784314, 0.0784314, 1 )
+light_energy = 0.0
+shadow_enabled = true
+omni_range = 17.3813
+
+[node name="alarm2" parent="." index="8" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.00208527, 2.05864, -0.946017 )
+
+[node name="lights_alert" type="AnimationPlayer" parent="." index="9"]
+anims/RESET = SubResource( 7 )
+anims/alert = SubResource( 8 )
+
+[editable path="alarm"]
+[editable path="alarm2"]
