@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Intro/perso_intro.glb" type="PackedScene" id=1]
+
+[node name="perso_intro" instance=ExtResource( 1 )]
+
+[node name="BoneAttachment" parent="Armature/Skeleton" index="0"]
+transform = Transform( -0.902747, -0.107323, 0.416569, 2.9252e-08, 0.968378, 0.249488, -0.430172, 0.225224, -0.8742, -0.070206, 0.747616, 0.0919585 )
+
+[node name="casque" parent="Armature/Skeleton/BoneAttachment" index="0"]
+visible = false
+
+[node name="BoneAttachment 2" parent="Armature/Skeleton" index="1"]
+transform = Transform( -0.902747, -0.107323, 0.416569, 2.9252e-08, 0.968378, 0.249488, -0.430172, 0.225224, -0.8742, -0.070206, 0.747616, 0.0919585 )
+
+[node name="lunettes" parent="Armature/Skeleton/BoneAttachment 2" index="0"]
+visible = false
+
+[node name="cheveux_femme" parent="Armature/Skeleton" index="5"]
+visible = false
+
+[node name="cravate" parent="Armature/Skeleton" index="7"]
+visible = false
