@@ -5,6 +5,8 @@ signal surprise()
 signal panique()
 signal ok()
 
+export var nb_sec : int = 35
+
 onready var camera = $Camera
 onready var camera_couloir = $Camera2
 onready var player = $player
@@ -15,6 +17,7 @@ onready var billboard_anim = $start_diag/diaIndicator/AnimationPlayer
 onready var plop = $start_diag/plop
 onready var maitre_pos = $pnjs/maitre_stage.transform.origin
 onready var camera_epuration = $Camera3
+
 
 var in_area_diag = false
 var in_dialogue = false
@@ -34,6 +37,9 @@ var water_control3_done = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Control.visible = false
+	$Control/Label.text = str(nb_sec)+"s"
+	
 	if not Engine.editor_hint:
 		$adventure_music.play()
 		
@@ -93,9 +99,14 @@ func go_back_to_normal():
 		$alarm_audio.stop()
 		emit_signal("ok")
 		$fade/fade_anim.play("fade_in")
+		$Control/Timer.stop()
+		$Control.visible = false
 
 func change_scene():
-	get_tree().change_scene("res://Menu/Menu.tscn")
+	if water_control_done and water_control2_done and water_control3_done:
+		get_tree().change_scene("res://niveaux/good_ending.tscn")
+	else:
+		get_tree().change_scene("res://niveaux/bad_ending.tscn")
 
 		
 
@@ -147,6 +158,9 @@ func _on_dialoguePanique_fin_dialogue():
 	$action_music.play()
 	emit_signal("panique")
 	in_dialogue = false
+	$Control/Timer.start()
+	$Control.visible = true
+	
 
 
 func _on_Area_body_entered(body):
@@ -177,3 +191,14 @@ func _on_salle_controle_body_entered(body):
 func _on_salle_epuration_body_entered(body):
 	if body.is_in_group("player_group"):
 		camera_epuration.current = true
+
+
+func _on_Timer_timeout():
+	nb_sec = nb_sec-1
+	
+	if nb_sec < 0:
+		$fade/fade_anim.play("fade_in")
+		$Control/Timer.stop()
+	else:
+		$Control/Label.text = str(nb_sec)+"s"
+	
