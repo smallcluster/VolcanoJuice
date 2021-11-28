@@ -16,3 +16,6 @@ func set_alert(boolean):
 		
 func _on_world_surprise():
 	set_alert(true)
+	
+func _on_world_ok():
+	set_alert(false)

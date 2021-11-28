@@ -33,6 +33,9 @@ func _process(delta):
 	else:
 		statemachine.travel("idle")
 	
+	
+func _on_mini_game(is_playing):
+	dialogue = is_playing
 		
 
 func turn_face(target, rotationSpeed, delta):

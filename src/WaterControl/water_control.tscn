@@ -1,0 +1,188 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://control_room_assets/keyboard.glb" type="PackedScene" id=1]
+[ext_resource path="res://WaterControl/wrong.wav" type="AudioStream" id=2]
+[ext_resource path="res://control_room_assets/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://control_room_assets/screen.glb" type="PackedScene" id=4]
+[ext_resource path="res://control_room_assets/metal_frame.material" type="Material" id=5]
+[ext_resource path="res://Player/fleche.glb" type="PackedScene" id=6]
+[ext_resource path="res://WaterControl/water_control.gd" type="Script" id=7]
+[ext_resource path="res://Dialogues/plop.wav" type="AudioStream" id=8]
+[ext_resource path="res://WaterControl/good.wav" type="AudioStream" id=9]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.499334, 0.668277, 0.3638 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "interract"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.058, 0.058, 0.058 ), Vector3( 0.1, 0.1, 0.1 ) ]
+}
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_unshaded = true
+albedo_color = Color( 1, 1, 0, 1 )
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.0104558, 1.43119, 0.609215 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "move"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.0104558, 1.43119, 0.609215 ), Vector3( -0.0104558, 1.53152, 0.609215 ), Vector3( -0.0104558, 1.43119, 0.609215 ) ]
+}
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.530714, 0.559383, 0.237515 )
+
+[node name="water_control" type="Spatial"]
+script = ExtResource( 7 )
+
+[node name="screen" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.224906, 0, 0, 0, 0.224906, 0, 0, 0, 0.224906, 0, 0.843944, 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.528066, 0, 0, 0, 0.23052, 0, 0, 0, 0.238577, 0, 0.226507, 0.770087 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 5 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.528066, 0, 0, 0, 0.306198, 0, 0, 0, 0.0480806, 0, 0.299763, 0.959896 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 5 )
+
+[node name="button" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.440794, 0.448943, 0.843999 )
+couleur = Color( 0.560654, 0.817243, 0.496494, 1 )
+
+[node name="button2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00747079, 0.448943, 0.843999 )
+couleur = Color( 0.955249, 0.355114, 0.61984, 1 )
+
+[node name="button3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43041, 0.448943, 0.843999 )
+couleur = Color( 0.23628, 0.869393, 0.805572, 1 )
+
+[node name="keyboard" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.442709, 0.643824 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 0.448397, 0, 0, 0, 1, 0, 0.359307, 0.136071 )
+shape = SubResource( 2 )
+
+[node name="Sprite3D" type="Spatial" parent="."]
+transform = Transform( 0.058, 0, 0, 0, 0.058, 0, 0, 0, 0.058, -0.0104558, 1.43119, 0.609215 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
+anims/interract = SubResource( 7 )
+
+[node name="fleche" parent="Sprite3D" instance=ExtResource( 6 )]
+
+[node name="fleche" parent="Sprite3D/fleche" index="0"]
+material/0 = SubResource( 11 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Sprite3D/fleche"]
+root_node = NodePath("../..")
+autoplay = "move"
+anims/RESET = SubResource( 9 )
+anims/move = SubResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.489966, 0.762727 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.057643, 0 )
+shape = SubResource( 8 )
+
+[node name="mini_game" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="ColorRect" parent="mini_game"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = 64.0
+margin_right = 64.0
+margin_bottom = -32.0
+rect_min_size = Vector2( 128, 0 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="target" type="ColorRect" parent="mini_game/bg"]
+anchor_right = 1.0
+margin_top = 226.8
+margin_bottom = 277.2
+rect_min_size = Vector2( 64, 16 )
+color = Color( 0, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cursor" type="ColorRect" parent="mini_game/bg"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -505.149
+margin_bottom = -500.109
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="good" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
+
+[editable path="Sprite3D/fleche"]

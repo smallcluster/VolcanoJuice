@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://control_room_assets/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://pnj/pnj.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://control_room_assets/screen.glb" type="PackedScene" id=5]
 [ext_resource path="res://control_room_assets/keyboard.glb" type="PackedScene" id=6]
 [ext_resource path="res://control_room_assets/button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WaterControl/water_control.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://niveaux/main_game.gd" type="Script" id=10]
 [ext_resource path="res://niveaux/alarm.wav" type="AudioStream" id=11]
@@ -9975,13 +9976,6 @@ tracks/6/keys = {
 resource_name = "redlight_modulation"
 loop = true
 
-[sub_resource type="SpatialMaterial" id=139]
-flags_transparent = true
-flags_unshaded = true
-params_billboard_mode = 1
-params_billboard_keep_scale = true
-albedo_texture = ExtResource( 16 )
-
 [sub_resource type="Animation" id=140]
 length = 0.001
 tracks/0/type = "value"
@@ -10029,6 +10023,13 @@ extents = Vector3( 0.406867, 0.66705, 0.741234 )
 
 [sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CylinderMesh" id=152]
+
+[sub_resource type="SpatialMaterial" id=153]
+albedo_color = Color( 0.294118, 0.32549, 0.4, 1 )
+metallic = 0.63
+roughness = 0.28
 
 [sub_resource type="CubeMesh" id=146]
 
@@ -10284,10 +10285,10 @@ couleur_cheveux = Color( 0.937526, 0.928739, 0.710988, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999999, -0.000350736, -8.91123e-05, -0.000361793, 0.969254, 0.246062, 8.50902e-08, 0.246061, -0.969253, -0.000148943, 0.747661, 0.107613 )
+transform = Transform( -0.999995, 0.00253438, 0.00149515, 0.00294262, 0.861278, 0.508126, 5.87643e-08, 0.508127, -0.861281, 0.00119917, 0.743612, 0.118441 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999999, -0.000350736, -8.91123e-05, -0.000361793, 0.969254, 0.246062, 8.50902e-08, 0.246061, -0.969253, -0.000148943, 0.747661, 0.107613 )
+transform = Transform( -0.999995, 0.00253438, 0.00149515, 0.00294262, 0.861278, 0.508126, 5.87643e-08, 0.508127, -0.861281, 0.00119917, 0.743612, 0.118441 )
 
 [node name="lunettes" parent="pnjs/pnj/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10321,10 +10322,10 @@ couleur_cheveux = Color( 0.0369748, 0.971596, 0.756772, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj3/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.99997, -0.00745604, -0.00130158, -0.00756871, 0.985077, 0.171949, 1.15292e-07, 0.171953, -0.985104, -0.00311909, 0.748178, 0.105596 )
+transform = Transform( -0.999925, -0.0120713, -0.00136742, -0.0121484, 0.993573, 0.112535, 2.03591e-07, 0.112543, -0.993646, -0.00501523, 0.748892, 0.102486 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj3/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.99997, -0.00745604, -0.00130158, -0.00756871, 0.985077, 0.171949, 1.15292e-07, 0.171953, -0.985104, -0.00311909, 0.748178, 0.105596 )
+transform = Transform( -0.999925, -0.0120713, -0.00136742, -0.0121484, 0.993573, 0.112535, 2.03591e-07, 0.112543, -0.993646, -0.00501523, 0.748892, 0.102486 )
 
 [node name="lunettes" parent="pnjs/pnj3/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10373,10 +10374,10 @@ couleur_cheveux = Color( 0.858662, 0.36601, 0.138128, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj4/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.994161, 0.00673374, 0.107694, 0.018867, 0.993524, 0.112046, -0.106242, 0.113423, -0.987849, 0.00647923, 0.749815, 0.0978919 )
+transform = Transform( -0.999794, 0.0178736, 0.00953416, 0.0202576, 0.882137, 0.470557, 1.00664e-07, 0.470653, -0.882318, 0.00828825, 0.745153, 0.114736 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj4/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.994161, 0.00673374, 0.107694, 0.018867, 0.993524, 0.112046, -0.106242, 0.113423, -0.987849, 0.00647923, 0.749815, 0.0978919 )
+transform = Transform( -0.999794, 0.0178736, 0.00953416, 0.0202576, 0.882137, 0.470557, 1.00664e-07, 0.470653, -0.882318, 0.00828825, 0.745153, 0.114736 )
 
 [node name="lunettes" parent="pnjs/pnj4/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10425,13 +10426,13 @@ couleur_cheveux = Color( 0.902265, 0.724683, 0.146116, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj8/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999992, -0.00335453, 0.00195229, -0.00335441, 0.999994, 1.09076e-05, -0.00195232, 3.66569e-06, -0.999997, 0.00730717, 0.764589, -1.35601e-06 )
+transform = Transform( -0.999966, -0.0082014, 3.18913e-05, -0.00820131, 0.999966, 0.000463068, -3.56822e-05, 0.000462174, -0.999999, 0.00271422, 0.764575, -0.000129691 )
 
 [node name="casque" parent="pnjs/pnj8/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj8/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999992, -0.00335453, 0.00195229, -0.00335441, 0.999994, 1.09076e-05, -0.00195232, 3.66569e-06, -0.999997, 0.00730717, 0.764589, -1.35601e-06 )
+transform = Transform( -0.999966, -0.0082014, 3.18913e-05, -0.00820131, 0.999966, 0.000463068, -3.56822e-05, 0.000462174, -0.999999, 0.00271422, 0.764575, -0.000129691 )
 
 [node name="lunettes" parent="pnjs/pnj8/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10481,13 +10482,13 @@ couleur_cheveux = Color( 0.411765, 0.278431, 0.207843, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj9/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999988, 0.00160711, 0.00436262, 0.00158812, 0.999989, -0.00437811, -0.00436961, -0.00437188, -0.99998, -0.000638683, 0.764444, -0.0010971 )
+transform = Transform( -0.99865, -0.0154767, -0.0495631, -0.0148682, 0.99981, -0.0126202, 0.049749, -0.011867, -0.99869, 0.00524081, 0.759524, -0.0149633 )
 
 [node name="casque" parent="pnjs/pnj9/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj9/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999988, 0.00160711, 0.00436262, 0.00158812, 0.999989, -0.00437811, -0.00436961, -0.00437188, -0.99998, -0.000638683, 0.764444, -0.0010971 )
+transform = Transform( -0.99865, -0.0154767, -0.0495631, -0.0148682, 0.99981, -0.0126202, 0.049749, -0.011867, -0.99869, 0.00524081, 0.759524, -0.0149633 )
 
 [node name="lunettes" parent="pnjs/pnj9/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10537,13 +10538,13 @@ couleur_cheveux = Color( 0.409717, 0.570208, 0.985189, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj10/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.968222, 0.0302961, 0.248247, 0.0213016, 0.999018, -0.0388393, -0.249181, -0.0323177, -0.967917, 0.00580386, 0.76413, -0.0358214 )
+transform = Transform( -0.999876, -0.0156095, 0.00162445, -0.0156094, 0.999878, 3.47495e-05, -0.0016248, 8.70228e-06, -0.999998, 0.00448557, 0.764474, -4.65009e-06 )
 
 [node name="casque" parent="pnjs/pnj10/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj10/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.968222, 0.0302961, 0.248247, 0.0213016, 0.999018, -0.0388393, -0.249181, -0.0323177, -0.967917, 0.00580386, 0.76413, -0.0358214 )
+transform = Transform( -0.999876, -0.0156095, 0.00162445, -0.0156094, 0.999878, 3.47495e-05, -0.0016248, 8.70228e-06, -0.999998, 0.00448557, 0.764474, -4.65009e-06 )
 
 [node name="lunettes" parent="pnjs/pnj10/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10593,13 +10594,13 @@ couleur_cheveux = Color( 0.391178, 0.6739, 0.0907809, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj11/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999593, 0.0101635, 0.0266376, 0.00936382, 0.999507, -0.0299785, -0.0269291, -0.0297176, -0.999195, -0.00370576, 0.763614, -0.00825132 )
+transform = Transform( -0.999936, -0.00302604, -0.0107906, -0.0029806, 0.999987, -0.00421709, 0.0108032, -0.00418541, -0.999932, 0.00132503, 0.763328, -0.00169302 )
 
 [node name="casque" parent="pnjs/pnj11/perso/Armature/Skeleton/BoneAttachment" index="0"]
 visible = false
 
 [node name="BoneAttachment2" parent="pnjs/pnj11/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999593, 0.0101635, 0.0266376, 0.00936382, 0.999507, -0.0299785, -0.0269291, -0.0297176, -0.999195, -0.00370576, 0.763614, -0.00825132 )
+transform = Transform( -0.999936, -0.00302604, -0.0107906, -0.0029806, 0.999987, -0.00421709, 0.0108032, -0.00418541, -0.999932, 0.00132503, 0.763328, -0.00169302 )
 
 [node name="lunettes" parent="pnjs/pnj11/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10646,10 +10647,10 @@ couleur_cheveux = Color( 0.8906, 0.476207, 0.321117, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj5/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999239, 0.0183584, -0.0343884, 0.0165345, 0.998479, 0.0525934, 0.0353016, 0.0519845, -0.998023, 0.00684533, 0.74981, 0.0978916 )
+transform = Transform( -0.999998, -0.000156165, 0.00135763, 8.54566e-05, 0.98437, 0.176109, -0.0013639, 0.176109, -0.984369, 1.80042e-08, 0.749866, 0.097892 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj5/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999239, 0.0183584, -0.0343884, 0.0165345, 0.998479, 0.0525934, 0.0353016, 0.0519845, -0.998023, 0.00684533, 0.74981, 0.0978916 )
+transform = Transform( -0.999998, -0.000156165, 0.00135763, 8.54566e-05, 0.98437, 0.176109, -0.0013639, 0.176109, -0.984369, 1.80042e-08, 0.749866, 0.097892 )
 
 [node name="lunettes" parent="pnjs/pnj5/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -10697,10 +10698,10 @@ couleur_cheveux = Color( 0.169082, 0.545436, 0.0189666, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj6/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999889, -0.0138653, -0.00534621, -0.0148602, 0.932941, 0.359721, 8.26934e-08, 0.35976, -0.933044, -0.00613263, 0.748734, 0.10269 )
+transform = Transform( -0.996033, 0.0113917, 0.0882473, 0.022341, 0.992018, 0.1241, -0.0861293, 0.125579, -0.988337, 0.00795196, 0.74979, 0.0978917 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj6/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999889, -0.0138653, -0.00534621, -0.0148602, 0.932941, 0.359721, 8.26934e-08, 0.35976, -0.933044, -0.00613263, 0.748734, 0.10269 )
+transform = Transform( -0.996033, 0.0113917, 0.0882473, 0.022341, 0.992018, 0.1241, -0.0861293, 0.125579, -0.988337, 0.00795196, 0.74979, 0.0978917 )
 
 [node name="body" parent="pnjs/pnj6/perso/Armature/Skeleton" index="3"]
 material/0 = SubResource( 85 )
@@ -10744,10 +10745,10 @@ couleur_cheveux = Color( 0.524619, 0.0789714, 0.264418, 1 )
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/pnj7/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999981, -0.00583676, -0.00158875, -0.00604902, 0.964879, 0.262624, 9.188e-08, 0.262628, -0.964897, -0.00250558, 0.750296, 0.0980855 )
+transform = Transform( -0.981471, -0.0225283, 0.190276, -0.0123594, 0.998439, 0.0544609, -0.191206, 0.0510995, -0.980218, -0.00520973, 0.749833, 0.0978914 )
 
 [node name="BoneAttachment2" parent="pnjs/pnj7/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999981, -0.00583676, -0.00158875, -0.00604902, 0.964879, 0.262624, 9.188e-08, 0.262628, -0.964897, -0.00250558, 0.750296, 0.0980855 )
+transform = Transform( -0.981471, -0.0225283, 0.190276, -0.0123594, 0.998439, 0.0544609, -0.191206, 0.0510995, -0.980218, -0.00520973, 0.749833, 0.0978914 )
 
 [node name="body" parent="pnjs/pnj7/perso/Armature/Skeleton" index="3"]
 material/0 = SubResource( 90 )
@@ -10787,10 +10788,10 @@ lunettes = false
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment2") ]
 
 [node name="BoneAttachment" parent="pnjs/maitre_stage/perso/Armature/Skeleton" index="0"]
-transform = Transform( -0.999586, -0.00905393, -0.0272758, -0.00869148, 0.999873, -0.0133745, 0.0273934, -0.0131327, -0.999538, 0.00294811, 0.761791, -0.00565654 )
+transform = Transform( -0.999612, 0.00819564, 0.0265964, 0.00789641, 0.999904, -0.0113405, -0.0266868, -0.0111269, -0.999581, -0.00357741, 0.763634, -0.0236078 )
 
 [node name="BoneAttachment2" parent="pnjs/maitre_stage/perso/Armature/Skeleton" index="1"]
-transform = Transform( -0.999586, -0.00905393, -0.0272758, -0.00869148, 0.999873, -0.0133745, 0.0273934, -0.0131327, -0.999538, 0.00294811, 0.761791, -0.00565654 )
+transform = Transform( -0.999612, 0.00819564, 0.0265964, 0.00789641, 0.999904, -0.0113405, -0.0266868, -0.0111269, -0.999581, -0.00357741, 0.763634, -0.0236078 )
 
 [node name="lunettes" parent="pnjs/maitre_stage/perso/Armature/Skeleton/BoneAttachment2" index="0"]
 visible = false
@@ -11119,7 +11120,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.348316, 0, -0.419556 )
 
 [node name="diaIndicator" type="Sprite3D" parent="start_diag"]
 transform = Transform( 0.058, 0, 0, 0, 0.058, 0, 0, 0, 0.058, -0.0792755, 1.49735, -0.932271 )
-material_override = SubResource( 139 )
+billboard = 1
 texture = ExtResource( 16 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="start_diag/diaIndicator"]
@@ -11178,7 +11179,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.417268, 0, 0 )
 shape = SubResource( 144 )
 
 [node name="Camera3" type="Camera" parent="."]
-transform = Transform( 0.00653163, -0.126193, 0.991984, 0, 0.992005, 0.126196, -0.999979, -0.000824263, 0.00647941, 18.6651, 2.10642, 0.555271 )
+transform = Transform( 0.00653175, -0.126193, 0.991984, 0, 0.992005, 0.126196, -0.999979, -0.00082428, 0.00647952, 18.6651, 2.10642, 0.555271 )
 
 [node name="plafonds" type="Spatial" parent="."]
 __meta__ = {
@@ -11206,6 +11207,24 @@ cast_shadow = 0
 mesh = SubResource( 7 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 8 )
+
+[node name="tube" type="MeshInstance" parent="."]
+transform = Transform( -1.76151e-08, -1.47872, 0, 0.402985, -6.46369e-08, 0, 0, 0, 0.402985, 13.4427, 2.0547, -5.99924 )
+mesh = SubResource( 152 )
+skeleton = NodePath("../glass")
+material/0 = SubResource( 153 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tube2" type="MeshInstance" parent="."]
+transform = Transform( 0.402985, 0, 0, 0, 1.47872, 0, 0, 0, 0.402985, 18.4427, -0.872809, -5.81446 )
+mesh = SubResource( 152 )
+skeleton = NodePath("../glass")
+material/0 = SubResource( 153 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="glass" type="MeshInstance" parent="."]
 transform = Transform( 5.03593, 0, 0, 0, 1.75156, 0, 0, 0, 1, 18.4071, 1.69767, -5.95024 )
@@ -11252,6 +11271,22 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 22.779,
 light_energy = 4.0
 spot_range = 4.27719
 spot_angle = 44.253
+
+[node name="water_control" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.8266, 0, -3.9097 )
+speed = 1.0
+
+[node name="water_control2" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18.2622, 0, -3.98715 )
+target = 0.8
+target_width = 0.05
+speed = 1.0
+
+[node name="water_control3" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 22.0961, 0, -3.98715 )
+target = 0.3
+target_width = 0.025
+speed = 1.2
 
 [connection signal="fin_dialogue" from="dialogueIntro" to="." method="_on_dialogueIntro_fin_dialogue"]
 [connection signal="fin_dialogue" from="dialoguePanique" to="." method="_on_dialoguePanique_fin_dialogue"]

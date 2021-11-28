@@ -3,6 +3,7 @@ extends Spatial
 
 signal surprise()
 signal panique()
+signal ok()
 
 onready var camera = $Camera
 onready var camera_couloir = $Camera2
@@ -18,6 +19,10 @@ onready var camera_epuration = $Camera3
 var in_area_diag = false
 var in_dialogue = false
 var dalogue_accepte = false
+
+var water_control_done = false
+var water_control2_done = false
+var water_control3_done = false
 
 
 
@@ -39,6 +44,19 @@ func _ready():
 	var doors = $doors.get_children()
 	for door in doors:
 		self.connect("surprise", door, "_on_world_surprise")
+		self.connect("ok", door,"_on_world_ok")
+		
+	var water_control = $water_control
+	var water_control2 = $water_control2
+	var water_control3 = $water_control3
+	
+	water_control.connect("playing", player, "_on_mini_game")
+	water_control2.connect("playing", player, "_on_mini_game")
+	water_control3.connect("playing", player, "_on_mini_game")
+	
+	water_control.connect("solved", self, "_on_water_control_finish")
+	water_control2.connect("solved", self, "_on_water_control2_finish")
+	water_control3.connect("solved", self, "_on_water_control3_finish")
 		
 	
 		
@@ -50,6 +68,27 @@ func _ready():
 	player.dialogue = false
 	
 
+func _on_water_control_finish():
+	water_control_done = true
+	go_back_to_normal()
+	
+func _on_water_control2_finish():
+	water_control2_done = true
+	go_back_to_normal()
+	
+func _on_water_control3_finish():
+	water_control3_done = true
+	go_back_to_normal()
+	
+func go_back_to_normal():
+	if water_control_done and water_control2_done and water_control3_done:
+		$AnimationPlayer.play_backwards("redalert")
+		$screams.stop()
+		$action_music.stop()
+		$adventure_music.play()
+		$alarm_audio.stop()
+		emit_signal("ok")
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -78,6 +117,8 @@ func _process(delta):
 	
 func start_alarm():
 	if Engine.editor_hint:
+		return
+	if water_control_done and water_control2_done and water_control3_done:
 		return
 	$adventure_music.stop()
 	$AnimationPlayer.play("redlight_modulation")
