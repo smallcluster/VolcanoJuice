@@ -80,6 +80,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("../AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "fade_in"
@@ -160,6 +172,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("../AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -10.0 ]
+}
 
 [sub_resource type="DynamicFont" id=9]
 size = 72
@@ -170,14 +194,18 @@ script = ExtResource( 6 )
 
 [node name="perso_intro" parent="." instance=ExtResource( 1 )]
 
+[node name="Skeleton" parent="perso_intro/Armature" index="0"]
+bones/17/bound_children = [ NodePath("BoneAttachment2") ]
+bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment 2") ]
+
 [node name="BoneAttachment" parent="perso_intro/Armature/Skeleton" index="0"]
-transform = Transform( -0.902747, -0.107323, 0.416569, 2.9252e-08, 0.968378, 0.249488, -0.430172, 0.225224, -0.8742, -0.070206, 0.747616, 0.0919585 )
+transform = Transform( -1, 7.10543e-15, -8.74228e-08, -1.88738e-15, 1, -1.49012e-07, 8.74228e-08, -1.78814e-07, -1, 8.40303e-15, 0.764597, -3.07336e-08 )
 
 [node name="BoneAttachment 2" parent="perso_intro/Armature/Skeleton" index="1"]
-transform = Transform( -0.902747, -0.107323, 0.416569, 2.9252e-08, 0.968378, 0.249488, -0.430172, 0.225224, -0.8742, -0.070206, 0.747616, 0.0919585 )
+transform = Transform( -1, 7.10543e-15, -8.74228e-08, -1.88738e-15, 1, -1.49012e-07, 8.74228e-08, -1.78814e-07, -1, 8.40303e-15, 0.764597, -3.07336e-08 )
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="perso_intro/Armature/Skeleton" index="9"]
-transform = Transform( 0.685666, -0.710821, -0.156827, -0.371128, -0.156035, -0.915378, 0.6262, 0.685846, -0.370793, -0.321341, 0.60736, 0.237797 )
+transform = Transform( 0.993246, -0.115974, 0.00354434, -0.110485, -0.954684, -0.276355, 0.0354338, 0.274096, -0.961048, -0.177488, 0.425509, -3.35276e-08 )
 bone_name = "hand.R"
 
 [node name="volcano" parent="perso_intro/Armature/Skeleton/BoneAttachment2" instance=ExtResource( 3 )]
