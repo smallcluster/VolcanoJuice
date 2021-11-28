@@ -170,10 +170,6 @@ script = ExtResource( 6 )
 
 [node name="perso_intro" parent="." instance=ExtResource( 1 )]
 
-[node name="Skeleton" parent="perso_intro/Armature" index="0"]
-bones/17/bound_children = [ NodePath("BoneAttachment2") ]
-bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment 2") ]
-
 [node name="BoneAttachment" parent="perso_intro/Armature/Skeleton" index="0"]
 transform = Transform( -0.902747, -0.107323, 0.416569, 2.9252e-08, 0.968378, 0.249488, -0.430172, 0.225224, -0.8742, -0.070206, 0.747616, 0.0919585 )
 
