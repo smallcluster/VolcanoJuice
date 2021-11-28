@@ -77,6 +77,7 @@ func _process(delta):
 				emit_signal("solved")
 				$Sprite3D.visible = false
 				$good.play()
+				$status.texture = load("res://WaterControl/good.png")
 			else:
 				$wrong.play()
 				emit_signal("playing", false)

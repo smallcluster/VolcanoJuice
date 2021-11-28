@@ -129,6 +129,9 @@ func start_alarm():
 	$adventure_music.stop()
 	$AnimationPlayer.play("redlight_modulation")
 	$alarm_audio.play()
+	var texture_error = load("res://WaterControl/error.png")
+	$screen1.texture =texture_error
+	$screen2.texture = texture_error
 	
 
 func _on_dialogueIntro_fin_dialogue():
