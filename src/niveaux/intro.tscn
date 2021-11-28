@@ -1,14 +1,177 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Intro/perso_intro.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Intro/cuissine.glb" type="PackedScene" id=2]
 [ext_resource path="res://Intro/volcano.glb" type="PackedScene" id=3]
+[ext_resource path="res://control_room_assets/grille.glb" type="PackedScene" id=4]
+[ext_resource path="res://Intro/walls.tres" type="Material" id=5]
+[ext_resource path="res://niveaux/intro.gd" type="Script" id=6]
+[ext_resource path="res://Musics/CrEEP.wav" type="AudioStream" id=7]
+[ext_resource path="res://Font/FiraSans-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.831373, 0.603922, 0.337255, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.215686, 0.215686, 0.215686, 1 )
+
+[sub_resource type="ProceduralSky" id=4]
+
+[sub_resource type="Environment" id=5]
+background_mode = 2
+background_sky = SubResource( 4 )
+background_energy = 0.5
+tonemap_mode = 3
+tonemap_exposure = 3.0
+tonemap_white = 16.0
+ss_reflections_enabled = true
+ssao_enabled = true
+ssao_intensity = 0.5
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "fade_to_game"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=9]
+size = 72
+font_data = ExtResource( 8 )
 
 [node name="world" type="Spatial"]
+script = ExtResource( 6 )
 
 [node name="perso_intro" parent="." instance=ExtResource( 1 )]
 
 [node name="Skeleton" parent="perso_intro/Armature" index="0"]
+bones/17/bound_children = [ NodePath("BoneAttachment2") ]
 bones/23/bound_children = [ NodePath("BoneAttachment"), NodePath("BoneAttachment 2") ]
 
 [node name="BoneAttachment" parent="perso_intro/Armature/Skeleton" index="0"]
@@ -17,8 +180,89 @@ transform = Transform( -0.902747, -0.107323, 0.416569, 2.9252e-08, 0.968378, 0.2
 [node name="BoneAttachment 2" parent="perso_intro/Armature/Skeleton" index="1"]
 transform = Transform( -0.902747, -0.107323, 0.416569, 2.9252e-08, 0.968378, 0.249488, -0.430172, 0.225224, -0.8742, -0.070206, 0.747616, 0.0919585 )
 
+[node name="BoneAttachment2" type="BoneAttachment" parent="perso_intro/Armature/Skeleton" index="9"]
+transform = Transform( 0.685666, -0.710821, -0.156827, -0.371128, -0.156035, -0.915378, 0.6262, 0.685846, -0.370793, -0.321341, 0.60736, 0.237797 )
+bone_name = "hand.R"
+
+[node name="volcano" parent="perso_intro/Armature/Skeleton/BoneAttachment2" instance=ExtResource( 3 )]
+transform = Transform( 0.685666, -0.371127, 0.6262, -0.710822, -0.156035, 0.685848, -0.156828, -0.915379, -0.370794, 0.296831, -0.296739, 0.593743 )
+
+[node name="AnimationPlayer" parent="perso_intro" index="1"]
+autoplay = "volcano_juice_track"
+
 [node name="cuissine" parent="." instance=ExtResource( 2 )]
 
-[node name="volcano" parent="." instance=ExtResource( 3 )]
+[node name="grille" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.969707, 0.0354994, 0.778251 )
+
+[node name="MeshInstance" type="MeshInstance" parent="grille"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0206141, 3.02234, 0.305923, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 5 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="grille"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0206141, -1.01788, 0.305923, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 5 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="grille"]
+transform = Transform( -4.37114e-08, 0, -0.0206141, 0, 1, 0, 1, 0, -9.0107e-10, -0.449078, 0.305923, -0.988949 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 5 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="grille"]
+transform = Transform( -4.37114e-08, 0, -0.0206141, 0, 1, 0, 1, 0, -9.0107e-10, 2.41435, 0.305923, -0.988949 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 5 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="grille"]
+transform = Transform( 2.67614e-15, -1.40062, 1.26206e-09, -4.37114e-08, -4.37114e-08, -0.0206141, 1, 0, -9.0107e-10, 1.02895, -0.0725028, -0.988949 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="grille"]
+transform = Transform( 3.45054e-15, -1.80592, 1.62726e-09, -5.63602e-08, -5.63602e-08, -0.0265792, 1.28937, 0, -1.16181e-09, 1.02895, 1.31201, -0.988949 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.971218, -0.140414, 0.192407, 0, 0.807774, 0.589492, -0.238194, -0.572525, 0.784524, 0.119859, 1.37146, 1.85179 )
+shadow_enabled = true
+directional_shadow_max_distance = 25.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.83209, 0, -0.554641, 0, 1, 0, 0.554641, 0, -0.83209, -0.790594, 0.62094, -0.541234 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+autoplay = "fade_in"
+anims/RESET = SubResource( 6 )
+anims/fade_in = SubResource( 7 )
+anims/fade_out = SubResource( 8 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 9 )
+text = "Pendant ce temps"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [editable path="perso_intro"]
