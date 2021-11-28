@@ -30,6 +30,11 @@ func _on_world_panique():
 	$perso/AnimationPlayer.play("run_panic_track")
 	panique = true
 	
+func _on_world_ok():
+	$perso.set_suprised(false)
+	$perso.set_idle_anim($perso.IDLE.standing)
+	panique = false
+	
 func _on_world_surprise():
 	$perso.set_suprised(true)
 	$perso.set_idle_anim($perso.IDLE.standing)

@@ -18,6 +18,7 @@ onready var camera_epuration = $Camera3
 
 var in_area_diag = false
 var in_dialogue = false
+
 var dalogue_accepte = false
 
 var water_control_done = false
@@ -40,6 +41,7 @@ func _ready():
 	for pnj in pnjs:
 		self.connect("panique", pnj, "_on_world_panique")
 		self.connect("surprise", pnj, "_on_world_surprise")
+		self.connect("ok", pnj,"_on_world_ok")
 		
 	var doors = $doors.get_children()
 	for door in doors:
@@ -63,9 +65,11 @@ func _ready():
 	dernier_diag.set_process(false)
 	dernier_diag.visible = false
 	
+	
 	premier_diag.set_process(false)
 	premier_diag.visible = false
 	player.dialogue = false
+	
 	
 
 func _on_water_control_finish():
@@ -88,6 +92,11 @@ func go_back_to_normal():
 		$adventure_music.play()
 		$alarm_audio.stop()
 		emit_signal("ok")
+		$fade/fade_anim.play("fade_in")
+
+func change_scene():
+	get_tree().change_scene("res://Menu/Menu.tscn")
+
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -111,9 +120,6 @@ func _process(delta):
 		player.turn_face(maitre_pos, 10, delta)
 			
 		
-		
-	
-	
 	
 func start_alarm():
 	if Engine.editor_hint:
