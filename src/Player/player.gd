@@ -1,7 +1,7 @@
 extends KinematicBody
 
 
-var speed = 125
+var speed = 2
 export var dialogue : bool = false
 onready var statemachine = $AnimationTree.get("parameters/playback")
 
@@ -15,16 +15,16 @@ func _process(delta):
 	
 	var dir = Vector3.ZERO
 	if not dialogue and Input.is_action_pressed("ui_up"):
-		move_and_slide(Vector3.FORWARD*speed*delta, Vector3.UP)
+		move_and_slide(Vector3.FORWARD*speed, Vector3.UP)
 		dir.z = 1
 	elif not dialogue and Input.is_action_pressed("ui_down"):
-		move_and_slide(-Vector3.FORWARD*speed*delta, Vector3.UP)
+		move_and_slide(-Vector3.FORWARD*speed, Vector3.UP)
 		dir.z = -1
 	if not dialogue and Input.is_action_pressed("ui_left"):
-		move_and_slide(Vector3.LEFT*speed*delta, Vector3.UP)
+		move_and_slide(Vector3.LEFT*speed, Vector3.UP)
 		dir.x = 1
 	elif not dialogue and Input.is_action_pressed("ui_right"):
-		move_and_slide(Vector3.RIGHT*speed*delta, Vector3.UP)
+		move_and_slide(Vector3.RIGHT*speed, Vector3.UP)
 		dir.x = -1
 		
 	if dir != Vector3.ZERO:
