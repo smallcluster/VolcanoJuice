@@ -1463,7 +1463,7 @@ bones/23/enabled = true
 bones/23/bound_children = [  ]
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( -0.999925, 0.00421041, 0.0114502, 0.00407482, 0.999922, -0.0118484, -0.0114992, -0.0118016, -0.999863, -0.00166392, 0.764186, -0.00306105 )
+transform = Transform( -0.999999, 2.25401e-07, -8.97293e-08, 3.20471e-07, 1, 5.06639e-07, 8.84581e-08, -2.08616e-07, -0.999999, 7.47238e-08, 0.764597, 8.6613e-08 )
 bone_name = "head"
 
 [node name="casque" type="MeshInstance" parent="Armature/Skeleton/BoneAttachment"]
@@ -1472,7 +1472,7 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( -0.999925, 0.00421041, 0.0114502, 0.00407482, 0.999922, -0.0118484, -0.0114992, -0.0118016, -0.999863, -0.00166392, 0.764186, -0.00306105 )
+transform = Transform( -0.999999, 2.25401e-07, -8.97293e-08, 3.20471e-07, 1, 5.06639e-07, 8.84581e-08, -2.08616e-07, -0.999999, 7.47238e-08, 0.764597, 8.6613e-08 )
 bone_name = "head"
 
 [node name="lunettes" type="MeshInstance" parent="Armature/Skeleton/BoneAttachment2"]
